@@ -90,6 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: rgba(255, 1, 1, 0.3);
 }
 .navbar-demo button.menu-btn {
   display: none;
