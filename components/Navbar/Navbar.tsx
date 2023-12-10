@@ -48,7 +48,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="nav-bar">
+      <div className="nav-bar md:justify-around justify-center">
+        <div className="md:block d-none">test</div>
         <ul>
           <li>
             <a href="#">Contact</a>

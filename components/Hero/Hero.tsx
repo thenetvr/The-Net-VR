@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="flex flex-col py-4 px-10 gap-6 md:flex-row items-center">
+    <div className="flex flex-col py-4 px-10 gap-6 md:flex-row md:px-24 items-center">
       <div className="py-4 w-full md:w-1/2">
         <p className="text-center md:text-left">Welcome to the party</p>
         <div className="py-2">
