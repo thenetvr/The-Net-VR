@@ -7,14 +7,15 @@ export default function UpcomingDates() {
   return (
     <div className="py-4 px-4 md:px-32 items-center text-center">
       <div className="uppercase text-xl">Dates For Our</div>
-      <h1 className="p-6 text-4xl font-bold">Upcoming Parties</h1>
+      <h1 className="p-6 text-4xl font-bold">Upcoming Events</h1>
       <p className="text-xl">
         View our event calendar to see upcoming events. Purchase tickets, VIP
         Bar Cards, or reserve VIP tables with bottle service.
       </p>
       <div className="p-10 flex gap-8 justify-center">
-        {[1, 2, 3].map((test) => (
+        {[1, 2, 3].map((test, idx) => (
           <button
+            key={idx}
             onClick={() => setOption(test)}
             className={`bg-red-300 px-10 py-5 rounded-lg ${
               test === option && "bg-red-500"
@@ -25,8 +26,8 @@ export default function UpcomingDates() {
         ))}
       </div>
       <div>
-        {[1, 2, 3].map((test) => (
-          <div>
+        {[1, 2, 3].map((test, idx) => (
+          <div key={idx}>
             {option == test && (
               <div className="py-16 px-12 bg-red-200 text-left">
                 <h1 className="text-3xl font-bold">

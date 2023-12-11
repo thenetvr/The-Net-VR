@@ -6,13 +6,13 @@ export default function Hero() {
     <Reveal>
       <div className="flex flex-col py-4 px-10 gap-6 md:flex-row md:px-24 items-center">
         <div className="py-4 w-full md:w-1/2">
-          <p className="text-center md:text-left">Welcome to the party</p>
+          <p className="text-center md:text-left">Welcome to The Net VR</p>
           <div className="py-2">
             <h1 className="uppercase text-6xl font-bold text-center md:text-left md:text-8xl">
               Join the
             </h1>
             <h1 className="uppercase text-6xl font-bold text-center md:text-left md:text-8xl">
-              club
+              Space
             </h1>
           </div>
           <p className="py-6">
