@@ -3,9 +3,11 @@ import React, { useEffect, useRef } from "react";
 
 interface Props {
   children: JSX.Element;
+  delay: number;
+  right?: boolean;
 }
 
-export default function Reveal({ children }: Props) {
+export default function Reveal({ children, delay, right }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -21,12 +23,12 @@ export default function Reveal({ children }: Props) {
     <div>
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: right ? 0 : 75, x: right ? 75 : 0 },
+          visible: { opacity: 1, y: 0, x: 0 },
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        transition={{ duration: 0.5, delay }}
         ref={ref}
       >
         {children}

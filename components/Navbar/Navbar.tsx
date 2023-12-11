@@ -29,13 +29,13 @@ export default function Navbar() {
       navEl.classList.remove("open-nav");
       spanEls.forEach((el) => el.classList.remove("change-color"));
       menuEl.classList.remove("Diam");
-      setTimeout(() => homeEl.classList.add("z-10"), 800);
+      // setTimeout(() => homeEl.classList.add("z-10"), 800);
     } else {
       navEl.classList.add("open-nav");
       spanEls.forEach((el) => el.classList.add("change-color"));
       menuEl.classList.add("Diam");
       setIsOpen(true);
-      homeEl.classList.remove("z-10");
+      // homeEl.classList.remove("z-10");
     }
   };
 
