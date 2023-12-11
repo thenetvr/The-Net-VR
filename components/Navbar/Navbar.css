@@ -54,7 +54,7 @@ body {
   display: table;
   width: 100%;
   position: fixed;
-  z-index: 99;
+  z-index: 2;
 }
 
 .navbar-demo .nav-bar ul li {
@@ -109,7 +109,7 @@ body {
   }
   .navbar-demo {
     height: 100%;
-    z-index: 999;
+    z-index: 2;
   }
   .navbar-demo .nav-bar {
     left: -950px;

@@ -21,17 +21,21 @@ export default function Navbar() {
     const navEl = document.querySelector(".navbar-demo");
     const spanEls = document.querySelectorAll("#pencet span");
     const menuEl = document.querySelector("#menu");
-    if (menuEl == null || navEl == null || spanEls == null) return;
+    const homeEl = document.querySelector("#home-container");
+    if (menuEl == null || navEl == null || spanEls == null || homeEl == null)
+      return;
     if (isOpen) {
       setIsOpen(false);
       navEl.classList.remove("open-nav");
       spanEls.forEach((el) => el.classList.remove("change-color"));
       menuEl.classList.remove("Diam");
+      setTimeout(() => homeEl.classList.add("z-10"), 800);
     } else {
       navEl.classList.add("open-nav");
       spanEls.forEach((el) => el.classList.add("change-color"));
       menuEl.classList.add("Diam");
       setIsOpen(true);
+      homeEl.classList.remove("z-10");
     }
   };
 
@@ -49,7 +53,6 @@ export default function Navbar() {
         </div>
       )}
       <div className="nav-bar md:justify-around justify-center">
-        <div className="md:block d-none">test</div>
         <ul>
           <li>
             <a href="#">Contact</a>

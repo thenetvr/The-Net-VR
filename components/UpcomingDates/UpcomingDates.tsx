@@ -1,0 +1,57 @@
+"use client";
+import React, { useState } from "react";
+
+export default function UpcomingDates() {
+  const [option, setOption] = useState(1);
+
+  return (
+    <div className="py-4 px-4 md:px-32 items-center text-center">
+      <div className="uppercase text-xl">Dates For Our</div>
+      <h1 className="p-6 text-4xl font-bold">Upcoming Parties</h1>
+      <p className="text-xl">
+        View our event calendar to see upcoming events. Purchase tickets, VIP
+        Bar Cards, or reserve VIP tables with bottle service.
+      </p>
+      <div className="p-10 flex gap-8 justify-center">
+        {[1, 2, 3].map((test) => (
+          <button
+            onClick={() => setOption(test)}
+            className={`bg-red-300 px-10 py-5 rounded-lg ${
+              test === option && "bg-red-500"
+            }`}
+          >
+            {test}
+          </button>
+        ))}
+      </div>
+      <div>
+        {[1, 2, 3].map((test) => (
+          <div>
+            {option == test && (
+              <div className="py-16 px-12 bg-red-200 text-left">
+                <h1 className="text-3xl font-bold">
+                  Skillet at DJO Night Club{test}
+                </h1>
+                <h2 className="font-medium py-2">
+                  22 december / doors open at 23:00
+                </h2>
+                <p className="py-10">
+                  Legends of American Hard Rock – Skillet Music for the first
+                  time with a solo concert in Lviv!On November 19th at Malevich
+                  Night Club, rockers will be presenting a new record as part of
+                  the Victorious Tour, and it will be something incredible!
+                </p>
+                <p className="text-3xl font-bold">$40</p>
+                <div className="py-3">
+                  <a href="/contact" className="font-bold text-xl underline">
+                    Get Tickets
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
