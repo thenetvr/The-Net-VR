@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero";
 import InTouch from "@/components/InTouch/InTouch";
+import MiniGalary from "@/components/MiniGalary/MiniGalary";
 import Navbar from "@/components/Navbar/Navbar";
 import PartyHost from "@/components/PartyHost/PartyHost";
 import Stats from "@/components/Stats/Stats";
@@ -16,6 +17,7 @@ export default function Home() {
       <PartyHost />
       <UpcomingDates />
       <WhatWeDo />
+      <MiniGalary />
     </main>
   );
 }

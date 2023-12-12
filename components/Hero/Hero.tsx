@@ -1,7 +1,9 @@
 "use client";
+import Image from "next/image";
 import Reveal from "../shared/Reveal";
 
 export default function Hero() {
+  const socials = ["discord", "facebook", "instagram", "twitter", "youtube"];
   return (
     <div className="flex flex-col pb-4 pt-20 px-10 gap-6 md:flex-row md:px-24 items-center">
       <div className="py-4 w-full md:w-1/2">
@@ -32,7 +34,22 @@ export default function Hero() {
               Get In touch
             </button>
             <div>
-              <h1 className="font-bold">FB - INST - TW</h1>
+              <h1 className="font-bold flex items-center gap-3">
+                {socials.map((social, idx) => (
+                  <a
+                    href="https://www.youtube.com"
+                    className="flex hover:bg-blue-400 p-1 rounded transition-all"
+                  >
+                    <Image
+                      key={idx}
+                      src={`/images/socials/${social}.png`}
+                      alt={social}
+                      width={30}
+                      height={30}
+                    />
+                  </a>
+                ))}
+              </h1>
             </div>
           </div>
         </Reveal>
