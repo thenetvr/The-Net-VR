@@ -1,0 +1,39 @@
+"use client";
+import React from "react";
+import Reveal from "../shared/Reveal";
+
+export default function WhatWeDo() {
+  return (
+    <div className="flex flex-col py-12 px-4 gap-6 lg:px-32 lg:py-16">
+      <Reveal delay={0}>
+        <h1 className="text-4xl font-bold py-16 lg:text-left text-center">
+          What We Do
+        </h1>
+      </Reveal>
+      <div className="flex flex-wrap">
+        {[1, 2, 3, 4, 5, 6].map((cardNum, idx) => (
+          <div key={idx} className="flex xl:w-1/3 md:w-1/2 w-full">
+            <Reveal delay={cardNum / 10}>
+              <div className="flex">
+                <div className="w-40 p-4">
+                  <div className="rounded-full bg-blue-200 h-16 w-16 text-center flex items-center justify-center font-semibold text-2xl">
+                    {cardNum}
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h1 className="py-4 font-semibold text-2xl">
+                    Corportate Events
+                  </h1>
+                  <p>
+                    Creativity corporate events from concept and design, right
+                    through to production and management of the event itself.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -3,7 +3,7 @@ import Reveal from "../shared/Reveal";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col py-4 px-10 gap-6 md:flex-row md:px-24 items-center">
+    <div className="flex flex-col pb-4 pt-20 px-10 gap-6 md:flex-row md:px-24 items-center">
       <div className="py-4 w-full md:w-1/2">
         <Reveal delay={0}>
           <p className="text-center md:text-left">Welcome to The Net VR</p>
