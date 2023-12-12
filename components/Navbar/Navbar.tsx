@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import "./Navbar.css";
 
-export default function Navbar2() {
+export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   return (
@@ -15,20 +15,20 @@ export default function Navbar2() {
           Hamburger Icon
         </div>
         <div className={`nav-elements  ${showNavbar && "active"}`}>
-          <ul>
-            <li>
+          <ul className="text-center gap-4">
+            <li className="mr-0">
               <Link href="/">Home</Link>
             </li>
-            <li>
+            <li className="mr-0">
               <Link href="/blogs">Blogs</Link>
             </li>
-            <li>
+            <li className="mr-0">
               <Link href="/projects">Projects</Link>
             </li>
-            <li>
+            <li className="mr-0">
               <Link href="/about">About</Link>
             </li>
-            <li>
+            <li className="mr-0">
               <Link href="/contact">Contact</Link>
             </li>
           </ul>

@@ -1,3 +1,4 @@
+import ContactUs from "@/components/ContactUs/ContactUs";
 import Hero from "@/components/Hero/Hero";
 import InTouch from "@/components/InTouch/InTouch";
 import MiniGalary from "@/components/MiniGalary/MiniGalary";
@@ -18,6 +19,7 @@ export default function Home() {
       <UpcomingDates />
       <WhatWeDo />
       <MiniGalary />
+      <ContactUs />
     </main>
   );
 }

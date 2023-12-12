@@ -13,23 +13,17 @@
   background-color: #fee9e5b4;
   position: fixed;
   width: 100%;
+  z-index: 1000;
 }
 
 .menu-icon {
   display: none;
 }
 
-.nav-elements {
-}
-
 .nav-elements ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-}
-
-.nav-elements ul li:not(:last-child) {
-  margin-right: 60px;
 }
 
 .nav-elements ul a {
@@ -57,7 +51,7 @@
 
 @media (max-width: 768px) {
   .nav-elements ul li:not(:last-child) {
-    margin-right: 30px;
+    /* margin-right: 30px; */
   }
 }
 
