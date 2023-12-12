@@ -44,7 +44,7 @@ export default function Testimonials() {
           </div>
           <div className="p-10 flex gap-8 justify-center flex-col md:flex-row md:px-10 px-32">
             {[1, 2, 3].map((test, idx) => (
-              <Reveal delay={test / 6}>
+              <Reveal delay={test / 6} key={idx}>
                 <div className="w-full">
                   <button
                     key={idx}

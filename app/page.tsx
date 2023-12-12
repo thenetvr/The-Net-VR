@@ -3,6 +3,7 @@ import Hero from "@/components/Hero/Hero";
 import InTouch from "@/components/InTouch/InTouch";
 import MiniGalary from "@/components/MiniGalary/MiniGalary";
 import Navbar from "@/components/Navbar/Navbar";
+import News from "@/components/News/News";
 import PartyHost from "@/components/PartyHost/PartyHost";
 import Stats from "@/components/Stats/Stats";
 import Testimonials from "@/components/Testimonials/Testimonials";
@@ -22,6 +23,7 @@ export default function Home() {
       <MiniGalary />
       <ContactUs />
       <Testimonials />
+      <News />
     </main>
   );
 }

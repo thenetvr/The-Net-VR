@@ -17,18 +17,24 @@ export default function Stats() {
             </p>
           </div>
           <div className="flex w-full py-12 gap-10 md:gap-16 justify-center md:justify-start text-lg">
-            <div>
-              <h2 className="text-4xl">20+</h2>
-              <p>Music Artists</p>
-            </div>
-            <div>
-              <h2 className="text-4xl">20+</h2>
-              <p>Music Artists</p>
-            </div>
-            <div>
-              <h2 className="text-4xl">20+</h2>
-              <p>Music Artists</p>
-            </div>
+            <Reveal delay={0.2}>
+              <div>
+                <h2 className="text-4xl">20+</h2>
+                <p>Music Artists</p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div>
+                <h2 className="text-4xl">20+</h2>
+                <p>Music Artists</p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.6}>
+              <div>
+                <h2 className="text-4xl">20+</h2>
+                <p>Music Artists</p>
+              </div>
+            </Reveal>
           </div>
         </div>
         <div className="md:w-1/2 w-full">
