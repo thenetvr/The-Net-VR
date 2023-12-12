@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Reveal from "../shared/Reveal";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function UpcomingDates() {
   const [option, setOption] = useState(1);
@@ -37,32 +38,39 @@ export default function UpcomingDates() {
           <div>
             {[1, 2, 3].map((test, idx) => (
               <div key={idx}>
-                {option == test && (
-                  <div className="py-16 px-12 bg-red-200 text-left">
-                    <h1 className="text-3xl font-bold">
-                      Skillet at DJO Night Club{test}
-                    </h1>
-                    <h2 className="font-medium py-2">
-                      22 december / doors open at 23:00
-                    </h2>
-                    <p className="py-10">
-                      Legends of American Hard Rock – Skillet Music for the
-                      first time with a solo concert in Lviv!On November 19th at
-                      Malevich Night Club, rockers will be presenting a new
-                      record as part of the Victorious Tour, and it will be
-                      something incredible!
-                    </p>
-                    <p className="text-3xl font-bold">$40</p>
-                    <div className="py-3">
-                      <a
-                        href="/contact"
-                        className="font-bold text-xl underline"
-                      >
-                        Get Tickets
-                      </a>
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence mode="wait">
+                  {option == test && (
+                    <motion.div
+                      className="py-16 px-12 bg-red-200 text-left"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 1 }}
+                    >
+                      <h1 className="text-3xl font-bold">
+                        Skillet at DJO Night Club{test}
+                      </h1>
+                      <h2 className="font-medium py-2">
+                        22 december / doors open at 23:00
+                      </h2>
+                      <p className="py-10">
+                        Legends of American Hard Rock – Skillet Music for the
+                        first time with a solo concert in Lviv!On November 19th
+                        at Malevich Night Club, rockers will be presenting a new
+                        record as part of the Victorious Tour, and it will be
+                        something incredible!
+                      </p>
+                      <p className="text-3xl font-bold">$40</p>
+                      <div className="py-3">
+                        <a
+                          href="/contact"
+                          className="font-bold text-xl underline"
+                        >
+                          Get Tickets
+                        </a>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
