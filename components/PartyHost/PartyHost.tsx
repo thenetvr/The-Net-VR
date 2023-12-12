@@ -13,8 +13,8 @@ export default function PartyHost() {
       </Reveal>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
         {[1, 2, 3, 4].map((cardNum, idx) => (
-          <Reveal delay={cardNum / 6}>
-            <div key={idx}>
+          <Reveal delay={cardNum / 6} key={idx}>
+            <div>
               <img
                 src="https://play-lh.googleusercontent.com/IeNJWoKYx1waOhfWF6TiuSiWBLfqLb18lmZYXSgsH1fvb8v1IYiZr5aYWe0Gxu-pVZX3"
                 alt="test"

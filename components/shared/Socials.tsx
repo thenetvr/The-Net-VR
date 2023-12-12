@@ -7,6 +7,7 @@ export default function Socials() {
       <h1 className="font-bold flex items-center gap-3">
         {socials.map((social, idx) => (
           <a
+            key={idx}
             href="https://www.youtube.com"
             className="flex hover:bg-blue-400 p-1 rounded transition-all bg-white"
           >
@@ -16,6 +17,7 @@ export default function Socials() {
               alt={social}
               width={30}
               height={30}
+              style={{ width: "auto" }}
             />
           </a>
         ))}

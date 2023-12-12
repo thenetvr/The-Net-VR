@@ -27,7 +27,7 @@ export default function UpcomingDates() {
               <button
                 key={idx}
                 onClick={() => setOption(test)}
-                className={`bg-red-300 px-10 py-5 rounded-lg ${
+                className={`bg-red-300 px-10 py-5 rounded-lg text-black ${
                   test === option && "bg-red-500"
                 }`}
               >

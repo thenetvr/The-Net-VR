@@ -16,7 +16,7 @@ export default function WhatWeDo() {
             <Reveal delay={cardNum / 10}>
               <div className="flex">
                 <div className="w-40 p-4">
-                  <div className="rounded-full bg-blue-200 h-16 w-16 text-center flex items-center justify-center font-semibold text-2xl">
+                  <div className="rounded-full bg-blue-200 h-16 w-16 text-center flex items-center justify-center font-semibold text-2xl text-black">
                     {cardNum}
                   </div>
                 </div>
