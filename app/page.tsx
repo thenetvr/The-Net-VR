@@ -5,6 +5,7 @@ import MiniGalary from "@/components/MiniGalary/MiniGalary";
 import Navbar from "@/components/Navbar/Navbar";
 import PartyHost from "@/components/PartyHost/PartyHost";
 import Stats from "@/components/Stats/Stats";
+import Testimonials from "@/components/Testimonials/Testimonials";
 import UpcomingDates from "@/components/UpcomingDates/UpcomingDates";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <WhatWeDo />
       <MiniGalary />
       <ContactUs />
+      <Testimonials />
     </main>
   );
 }

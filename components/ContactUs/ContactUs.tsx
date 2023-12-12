@@ -97,6 +97,13 @@ export default function ContactUs() {
             />
           </Reveal>
         </div>
+        <div className="p-4 w-full">
+          <Reveal delay={1}>
+            <button className="bg-red-800 rounded text-white p-5">
+              Submit
+            </button>
+          </Reveal>
+        </div>
       </div>
     </div>
   );
