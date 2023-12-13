@@ -7,7 +7,7 @@ export default function UpcomingDates() {
   const [option, setOption] = useState(1);
 
   return (
-    <div className="py-4 px-4 md:px-32 items-center text-center">
+    <div className="py-4 px-10 lg:px-20 xl:px-72 items-center text-center">
       <Reveal delay={0}>
         <div className="uppercase text-xl">Dates For Our</div>
       </Reveal>

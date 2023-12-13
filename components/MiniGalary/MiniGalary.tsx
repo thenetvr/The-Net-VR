@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function MiniGalary() {
   return (
-    <div className="flex flex-col py-12 px-4 gap-6 lg:px-32 lg:py-16">
+    <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">
       <Reveal delay={0}>
         <div className="flex flex-wrap">
           {[1, 2, 3, 4, 5, 6].map((cardNum, idx) => (

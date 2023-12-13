@@ -4,7 +4,7 @@ import Reveal from "../shared/Reveal";
 
 export default function WhatWeDo() {
   return (
-    <div className="flex flex-col py-12 px-4 gap-6 lg:px-32 lg:py-16">
+    <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">
       <Reveal delay={0}>
         <h1 className="text-4xl font-bold py-16 lg:text-left text-center">
           What We Do

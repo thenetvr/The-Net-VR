@@ -4,7 +4,7 @@ import Reveal from "../shared/Reveal";
 
 export default function News() {
   return (
-    <div className="flex flex-col py-4 px-4 md:py-16 gap-6 md:px-32">
+    <div className="flex flex-col py-4 md:py-16 gap-6 px-10 lg:px-20 xl:px-72">
       <div className="grid grid-cols-5 gap-4">
         <div className="sm:col-span-4 col-span-6">
           <Reveal delay={0.2}>

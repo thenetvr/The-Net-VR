@@ -10,7 +10,6 @@
 
 .navbar {
   height: 60px;
-  background-color: #fee9e5c8;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -29,7 +28,6 @@
 .nav-elements ul a {
   font-size: 16px;
   font-weight: 400;
-  color: #2f234f;
   text-decoration: none;
 }
 
@@ -65,7 +63,7 @@
     position: absolute;
     right: 0;
     top: 60px;
-    background-color: #fef7e5;
+    background-color: #fabd23;
     width: 0px;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;

@@ -8,7 +8,7 @@ export default function Testimonials() {
   const [option, setOption] = useState(1);
 
   return (
-    <div className="py-20 px-4 md:px-32 items-center text-center">
+    <div className="py-20 px-10 lg:px-20 xl:px-72 items-center text-center">
       <Reveal delay={0}>
         <div className="uppercase text-xl">Testimonials</div>
       </Reveal>
@@ -42,7 +42,7 @@ export default function Testimonials() {
               </div>
             ))}
           </div>
-          <div className="p-10 flex gap-8 justify-center flex-col md:flex-row md:px-10 px-32">
+          <div className="p-10 flex gap-8 justify-center flex-col md:flex-row md:px-10 sm:px-32">
             {[1, 2, 3].map((test, idx) => (
               <Reveal delay={test / 6} key={idx}>
                 <div className="w-full">

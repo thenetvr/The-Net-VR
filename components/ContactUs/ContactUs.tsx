@@ -9,7 +9,7 @@ import Reveal from "../shared/Reveal";
 
 export default function ContactUs() {
   return (
-    <div className="py-4 px-4 lg:px-32 md:p-8 items-center text-center flex md:flex-row gap-12 flex-col">
+    <div className="py-4 px-10 lg:px-20 xl:px-72 md:p-8 items-center text-center flex md:flex-row gap-12 flex-col">
       <div className="w-full md:w-1/3">
         <Reveal delay={0}>
           <h1 className="text-4xl font-bold py-10 lg:text-left text-center">

@@ -7,6 +7,7 @@ import "./Navbar.css";
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
+  // check scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -15,14 +16,15 @@ export default function Navbar() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className="navbar">
+    <nav
+      className={`navbar bg-cyan-500 transition-all ${
+        scrollPosition > 200 ? "bg-opacity-100" : "bg-opacity-30"
+      }`}
+    >
       <div className="container">
         <div className="logo">The Net VR</div>
         <div className="menu-icon" onClick={() => setShowNavbar(!showNavbar)}>
@@ -31,7 +33,14 @@ export default function Navbar() {
         <div className={`nav-elements  ${showNavbar && "active"}`}>
           <ul className="text-center gap-4">
             <li className="mr-0">
-              <Link href="/">Home</Link>
+              <Link
+                href="/"
+                className={
+                  scrollPosition > 200 ? "text-black" : "text-green-400"
+                }
+              >
+                Home
+              </Link>
             </li>
             <li className="mr-0">
               <Link href="/blogs">Blogs</Link>

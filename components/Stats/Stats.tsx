@@ -5,7 +5,7 @@ import Reveal from "../shared/Reveal";
 export default function Stats() {
   return (
     <Reveal delay={0}>
-      <div className="flex flex-col-reverse py-4 px-4 gap-6 md:flex-row md:px-32 items-center">
+      <div className="flex flex-col-reverse py-4 px-10 lg:px-20 xl:px-72 gap-6 md:flex-row items-center">
         <div className="md:w-1/2 w-full px-24 md:p-0">
           <div className="text-center md:text-left">
             <h2 className="text-5xl font-bold">About Last Night</h2>

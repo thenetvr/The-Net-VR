@@ -4,18 +4,13 @@ import Reveal from "../shared/Reveal";
 
 export default function InTouch() {
   return (
-    <div
-      className="flex flex-col justify-center
-    
-    
-    py-32 px-10 gap-6 items-center"
-    >
+    <div className="flex flex-col justify-center px-10 lg:px-20 xl:px-72 py-32 gap-6 items-center">
       <Reveal delay={0}>
         <h1 className="text-2xl uppercase">UNDERGROUND FAVES</h1>
       </Reveal>
       <Reveal delay={0.1}>
         <div className="flex justify-center">
-          <p className="md:w-3/5 w-full text-center text-3xl">
+          <p className="lg:w-3/5 w-full text-center text-3xl">
             Maybe you’re needing to blow off some serious steam with an
             all-night party, or wanting to impress someone special with a venue
             that’s a little more discreet and sophisticated. Either way, if
