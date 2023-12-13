@@ -18,7 +18,7 @@
   height: var(--bubble-size);
   list-style: none;
   opacity: 0;
-  background: radial-gradient(deepskyblue, transparent, transparent);
+  background: radial-gradient(rgb(193, 193, 193), transparent, transparent);
   bottom: 0;
   left: 10vw;
   animation: animate 15s linear infinite;

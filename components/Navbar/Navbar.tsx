@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar bg-cyan-500 transition-all ${
+      className={`navbar bg-slate-500 transition-all ${
         scrollPosition > 200 ? "bg-opacity-100" : "bg-opacity-30"
       }`}
     >

@@ -12,6 +12,7 @@ import UpcomingDates from "@/components/UpcomingDates/UpcomingDates";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./globals.css";
 import Background from "@/components/Background/Background";
+import SecondBG from "@/components/SecondBG/SecondBG";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <Footer />
       </div>
       <Background />
+      <SecondBG />
     </main>
   );
 }
