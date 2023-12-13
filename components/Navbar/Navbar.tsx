@@ -27,16 +27,33 @@ export default function Navbar() {
     >
       <div className="container">
         <div className="logo">The Net VR</div>
-        <div className="menu-icon" onClick={() => setShowNavbar(!showNavbar)}>
-          Hamburger Icon
+        <div
+          className="menu-icon"
+          onClick={() => {
+            setShowNavbar(!showNavbar);
+            const bodyEl = document.querySelector(".main-content");
+            if (!showNavbar) {
+              bodyEl?.classList.add("blur");
+            } else {
+              bodyEl?.classList.remove("blur");
+            }
+          }}
+        >
+          <div className={`burger ${showNavbar && "burger-active"}`}>
+            <div className="strip burger-strip-5">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
-        <div className={`nav-elements  ${showNavbar && "active"}`}>
+        <div className={`nav-elements ${showNavbar && "active"}`}>
           <ul className="text-center gap-4">
             <li className="mr-0">
               <Link
                 href="/"
                 className={
-                  scrollPosition > 200 ? "text-black" : "text-green-400"
+                  scrollPosition > 200 ? "text-black" : "text-teal-300"
                 }
               >
                 Home

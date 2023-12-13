@@ -63,7 +63,7 @@
     position: absolute;
     right: 0;
     top: 60px;
-    background-color: #fabd23;
+    background-color: #282828b8;
     width: 0px;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
@@ -83,4 +83,47 @@
     margin-right: unset;
     margin-top: 22px;
   }
+
+  .nav-elements ul li a {
+    font-size: 30px;
+  }
+}
+
+.burger {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.strip div {
+  height: 3px;
+  border-radius: 2px;
+  background: white;
+  margin: 10px;
+  transition: all 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 40px;
+}
+.burger:hover .strip div {
+  background: aqua;
+}
+
+.burger-strip-5 div {
+  transition: all 0.65s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.burger-active .burger-strip-5 div:first-child {
+  transform: translateY(13px) rotate(0deg);
+}
+.burger-active .burger-strip-5 div:nth-child(2) {
+  opacity: 0;
+}
+.burger-active .burger-strip-5 div:last-child {
+  transform: translateY(-13px) rotate(90deg);
+}
+.burger-active .burger-strip-5 {
+  transform: scale(0.7) rotate(45deg);
+  transition: all 0.25s ease 0.05s;
 }

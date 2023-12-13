@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useReducer } from "react";
 // INPUT NEXUI DOCS = https://nextui.org/docs/components/input
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
@@ -9,6 +9,27 @@ import Reveal from "../shared/Reveal";
 import Button from "../shared/Button";
 
 export default function ContactUs() {
+  const [state, dispatch] = useReducer(
+    // @ts-ignore
+    (state, action) => ({
+      ...state,
+      ...action,
+    }),
+    {
+      first: "",
+      last: "",
+      email: "",
+      phone: "",
+      message: "",
+    }
+  );
+
+  const handleFormSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    console.log(state);
+    return "test";
+  };
+
   return (
     <div className="py-4 px-10 lg:px-20 xl:px-72 md:p-8 items-center text-center flex md:flex-row gap-12 flex-col">
       <div className="w-full md:w-1/3">
@@ -37,7 +58,7 @@ export default function ContactUs() {
           </div>
         </Reveal>
       </div>
-      <div className="w-full flex flex-wrap md:w-2/3">
+      <form className="w-full flex flex-wrap md:w-2/3">
         <div className="p-4 md:w-1/2 w-full">
           <Reveal delay={0}>
             <Input
@@ -47,6 +68,8 @@ export default function ContactUs() {
               type="text"
               label="First Name"
               placeholder="Enter Your First Name"
+              value={state.first}
+              onChange={(e) => dispatch({ first: e.target.value })}
             />
           </Reveal>
         </div>
@@ -59,6 +82,8 @@ export default function ContactUs() {
               type="text"
               label="Last Name"
               placeholder="Enter Your Last Name"
+              value={state.last}
+              onChange={(e) => dispatch({ last: e.target.value })}
             />
           </Reveal>
         </div>
@@ -71,6 +96,8 @@ export default function ContactUs() {
               type="email"
               label="Email"
               placeholder="Enter Your Email"
+              value={state.email}
+              onChange={(e) => dispatch({ email: e.target.value })}
             />
           </Reveal>
         </div>
@@ -83,6 +110,8 @@ export default function ContactUs() {
               type="number"
               label="Phone Number"
               placeholder="Enter Your Phone Number"
+              value={state.phone}
+              onChange={(e) => dispatch({ phone: e.target.value })}
             />
           </Reveal>
         </div>
@@ -94,16 +123,20 @@ export default function ContactUs() {
               variant="underlined"
               label="Description"
               placeholder="What Would You Like To Tell Us?"
+              value={state.message}
+              onChange={(e) => dispatch({ message: e.target.value })}
               size="lg"
             />
           </Reveal>
         </div>
         <div className="p-4 w-full">
           <Reveal delay={1}>
-            <Button text="Submit" />
+            <div onClick={handleFormSubmit}>
+              <Button text="Submit" />
+            </div>
           </Reveal>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

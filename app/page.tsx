@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main>
       <Navbar />
-      <div className="content">
+      <div className="main-content">
         <Hero />
         <InTouch />
         <Stats />
