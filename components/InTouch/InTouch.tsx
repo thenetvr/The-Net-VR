@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Reveal from "../shared/Reveal";
+import Button from "../shared/Button";
 
 export default function InTouch() {
   return (
@@ -20,9 +21,7 @@ export default function InTouch() {
         </div>
       </Reveal>
       <Reveal delay={0.2}>
-        <button className="bg-red-800 rounded text-white p-5">
-          Get In touch
-        </button>
+        <Button text="Get In Touch" />
       </Reveal>
     </div>
   );

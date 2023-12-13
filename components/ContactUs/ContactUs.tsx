@@ -6,6 +6,7 @@ import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import Socials from "../shared/Socials";
 import Reveal from "../shared/Reveal";
+import Button from "../shared/Button";
 
 export default function ContactUs() {
   return (
@@ -99,9 +100,7 @@ export default function ContactUs() {
         </div>
         <div className="p-4 w-full">
           <Reveal delay={1}>
-            <button className="bg-red-800 rounded text-white p-5">
-              Submit
-            </button>
+            <Button text="Submit" />
           </Reveal>
         </div>
       </div>

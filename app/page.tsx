@@ -1,4 +1,5 @@
 import ContactUs from "@/components/ContactUs/ContactUs";
+import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
 import InTouch from "@/components/InTouch/InTouch";
 import MiniGalary from "@/components/MiniGalary/MiniGalary";
@@ -24,6 +25,7 @@ export default function Home() {
       <ContactUs />
       <Testimonials />
       <News />
+      <Footer />
     </main>
   );
 }

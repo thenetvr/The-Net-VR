@@ -1,4 +1,5 @@
 "use client";
+import Button from "../shared/Button";
 import Reveal from "../shared/Reveal";
 import Socials from "../shared/Socials";
 
@@ -29,9 +30,7 @@ export default function Hero() {
         </Reveal>
         <Reveal delay={0.4}>
           <div className="flex items-center gap-8">
-            <button className="bg-red-800 rounded text-white p-5">
-              Get In touch
-            </button>
+            <Button text="Get In Touch" />
             <Socials />
           </div>
         </Reveal>
