@@ -41,7 +41,7 @@ export default function UpcomingDates() {
                 <AnimatePresence mode="wait">
                   {option == test && (
                     <motion.div
-                      className="py-16 px-12 bg-red-500 text-left"
+                      className="md:py-16 md:px-12 py-7 px-5 bg-red-500 text-left"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 1 }}

@@ -6,10 +6,10 @@ export default function Stats() {
   return (
     <Reveal delay={0}>
       <div className="flex flex-col-reverse py-4 px-10 lg:px-20 xl:px-72 gap-6 md:flex-row items-center">
-        <div className="md:w-1/2 w-full px-24 md:p-0">
+        <div className="md:w-1/2 w-full md:p-0">
           <div className="text-center md:text-left">
             <h2 className="text-5xl font-bold">About Last Night</h2>
-            <p className="py-5 text-lg">
+            <p className="py-5 md:text-lg text-md">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
               necessitatibus distinctio natus possimus ex suscipit sed obcaecati
               sapiente non, laudantium ipsa laboriosam soluta porro ducimus.

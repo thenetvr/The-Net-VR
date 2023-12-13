@@ -29,13 +29,13 @@ export default function Hero() {
           </p>
         </Reveal>
         <Reveal delay={0.4}>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 flex-col md:flex-row">
             <Button text="Get In Touch" />
             <Socials />
           </div>
         </Reveal>
       </div>
-      <div className="w-1/2 flex justify-end">
+      <div className="md:w-1/2 flex md:justify-end justify-center w-full">
         <Reveal delay={0} right={true}>
           <img
             className="rounded"
