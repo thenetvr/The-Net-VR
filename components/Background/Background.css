@@ -1,0 +1,65 @@
+:root {
+  --bubble-size: 50px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  height: 100vh;
+}
+.box {
+  position: fixed;
+  z-index: -99;
+}
+.box ul li {
+  position: absolute;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  list-style: none;
+  opacity: 0;
+  background: radial-gradient(deepskyblue, transparent, transparent);
+  bottom: 0;
+  left: 10vw;
+  animation: animate 15s linear infinite;
+}
+.box ul li:nth-child(2) {
+  left: 37vw;
+  animation-delay: 2s;
+}
+.box ul li:nth-child(3) {
+  left: 25vw;
+  animation-delay: 3s;
+}
+.box ul li:nth-child(4) {
+  left: 60vw;
+  animation-delay: 6s;
+}
+.box ul li:nth-child(5) {
+  left: 75vw;
+  animation-delay: 4s;
+}
+.box ul li:nth-child(6) {
+  left: 83vw;
+  animation-delay: 5s;
+}
+.box ul li:nth-child(7) {
+  left: 54vw;
+  animation-delay: 7s;
+}
+.box ul li:nth-child(8) {
+  left: 30vw;
+  animation-delay: 8s;
+}
+@keyframes animate {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    bottom: 0;
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+    bottom: 100vh;
+  }
+}

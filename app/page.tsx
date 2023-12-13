@@ -10,22 +10,27 @@ import Stats from "@/components/Stats/Stats";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import UpcomingDates from "@/components/UpcomingDates/UpcomingDates";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
+import "./globals.css";
+import Background from "@/components/Background/Background";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
-      <Hero />
-      <InTouch />
-      <Stats />
-      <PartyHost />
-      <UpcomingDates />
-      <WhatWeDo />
-      <MiniGalary />
-      <ContactUs />
-      <Testimonials />
-      <News />
-      <Footer />
+      <div className="content">
+        <Hero />
+        <InTouch />
+        <Stats />
+        <PartyHost />
+        <UpcomingDates />
+        <WhatWeDo />
+        <MiniGalary />
+        <ContactUs />
+        <Testimonials />
+        <News />
+        <Footer />
+      </div>
+      <Background />
     </main>
   );
 }
