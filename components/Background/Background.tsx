@@ -9,11 +9,12 @@ function randomIntFromInterval(min, max) {
 
 export default function Background() {
   useEffect(() => {
+    // created and customized one bubble
+    const listEls = document.querySelectorAll(".bubbles > li");
     setInterval(() => {
       let spread = 0;
       let delay = 0;
-      // created and customized one bubble
-      const listEls = document.querySelectorAll(".bubbles > li");
+
       listEls.forEach((listEl) => {
         // 3 - 98
         const left = randomIntFromInterval(spread, spread + 10);
@@ -26,13 +27,13 @@ export default function Background() {
         const duration = randomIntFromInterval(3, 30);
         listEl.style.animation = `animate ${duration}s linear infinite`;
       });
-    }, 30000);
+    }, 15000);
   }, []);
 
   return (
     <div className="box">
       <ul className="bubbles">
-        {Array.from(Array(10).keys()).map((key, idx) => (
+        {Array.from(Array(20).keys()).map((key, idx) => (
           <li key={idx}></li>
         ))}
       </ul>
