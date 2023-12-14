@@ -5,7 +5,10 @@ import Reveal from "../shared/Reveal";
 
 export default function PartyHost() {
   return (
-    <div className="flex flex-col py-4 px-10 lg:px-20 xl:px-72 md:py-16 gap-6">
+    <div
+      id="party-host"
+      className="flex flex-col py-4 px-10 lg:px-20 xl:px-72 md:py-16 gap-6"
+    >
       <Reveal delay={0.2}>
         <h1 className="text-center md:text-start text-5xl font-bold">
           Our Party Host

@@ -26,9 +26,9 @@ export default function Home() {
         <UpcomingDates />
         <WhatWeDo />
         <MiniGalary />
-        <ContactUs />
         <Testimonials />
         <News />
+        <ContactUs />
         <Footer />
       </div>
       <Background />

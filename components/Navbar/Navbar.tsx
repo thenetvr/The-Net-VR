@@ -60,16 +60,16 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="mr-0">
-              <Link href="/blogs">Blogs</Link>
+              <Link href="#party-host">Party Host</Link>
             </li>
             <li className="mr-0">
-              <Link href="/projects">Projects</Link>
+              <Link href="#upcoming-events">Upcoming Events</Link>
             </li>
             <li className="mr-0">
               <Link href="/about">About</Link>
             </li>
             <li className="mr-0">
-              <Link href="/contact">Contact</Link>
+              <Link href="#contact">Contact</Link>
             </li>
           </ul>
         </div>

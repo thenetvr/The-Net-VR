@@ -12,7 +12,7 @@ export default function WhatWeDo() {
       </Reveal>
       <div className="flex flex-wrap">
         {[1, 2, 3, 4, 5, 6].map((cardNum, idx) => (
-          <div key={idx} className="flex xl:w-1/3 md:w-1/2 w-full">
+          <div key={idx} className="flex 2xl:w-1/3 md:w-1/2 w-full">
             <Reveal delay={cardNum / 10}>
               <div className="block md:flex md:items-center">
                 <div className="md:w-40 w-full p-4 flex justify-center">

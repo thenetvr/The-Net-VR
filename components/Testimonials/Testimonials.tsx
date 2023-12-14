@@ -23,7 +23,7 @@ export default function Testimonials() {
                 <AnimatePresence mode="wait">
                   {option == test && (
                     <motion.div
-                      className="py-16 px-12"
+                      className="py-16 md:px-12 px-0"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 1 }}
