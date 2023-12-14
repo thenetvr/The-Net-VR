@@ -8,15 +8,17 @@ export default function Hero() {
     <div className="flex flex-col pb-4 pt-20 px-10 lg:px-20 xl:px-72 gap-10 md:flex-row items-center">
       <div className="py-4 w-full md:w-1/2">
         <Reveal delay={0}>
-          <p className="text-center md:text-left">Welcome to The Net VR</p>
+          <p className="text-center md:text-left">
+            Welcome To The Net VR, Home Of The
+          </p>
         </Reveal>
         <Reveal delay={0.2}>
           <div className="py-2">
-            <h1 className="uppercase text-6xl font-bold text-center md:text-left md:text-8xl">
-              Join the
+            <h1 className="uppercase text-6xl font-bold text-center md:text-left lg:text-7xl">
+              Future of
             </h1>
-            <h1 className="uppercase text-6xl font-bold text-center md:text-left md:text-8xl">
-              Space
+            <h1 className="uppercase text-6xl font-bold text-center md:text-left lg:text-7xl">
+              Live Stream
             </h1>
           </div>
         </Reveal>
