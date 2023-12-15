@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
+import Image from "next/image";
 
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -21,12 +22,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar bg-slate-500 transition-all ${
+      className={`navbar bg-slate-900 transition-all ${
         scrollPosition > 200 ? "bg-opacity-100" : "bg-opacity-30"
       }`}
     >
       <div className="container">
-        <div className="logo">The Net VR</div>
+        <div className="logo rounded-xl">
+          <Image src="/images/logo.png" alt="logo" width={150} height={150} />
+        </div>
         <div
           className="menu-icon"
           onClick={() => {
@@ -50,12 +53,7 @@ export default function Navbar() {
         <div className={`nav-elements ${showNavbar && "active"}`}>
           <ul className="text-center gap-4">
             <li className="mr-0">
-              <Link
-                href="/"
-                className={
-                  scrollPosition > 200 ? "text-black" : "text-teal-300"
-                }
-              >
+              <Link href="/" className="text-teal-300">
                 Home
               </Link>
             </li>
