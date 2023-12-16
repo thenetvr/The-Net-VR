@@ -2,6 +2,29 @@
 import React from "react";
 import Reveal from "../shared/Reveal";
 
+// `The Core values are 3 time, space, and matter.
+
+// Time- Past, Present, and future
+// We care about peoples time. When and where they spend it is important to us. Live time is the only part that we can control.
+
+// When the event is live we have the best understanding and full context of an event that is happening in space. This allows us to build for the future and document appropriately for the past.
+
+// Space - 3D space is the key to unlocking virtual worlds. What comes with space is proper boundary settings.
+
+// Matter - Weather it be bits or atoms we focus share on making conscious connections with with other conscious bodies weather it be in the virtual world or in reality.`
+
+//
+//
+//
+
+// -- What we do
+//     -- 1. connect content creators to their viewers in a video game
+//     -- 2. allow for more immersion for viewers to connect with their communities
+//     -- 3. can share digital assets together
+//     -- 4. do immersion not with hardware, but with software
+//     -- 5. surf the internet in 3D
+//     -- 6.
+
 export default function WhatWeDo() {
   return (
     <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">

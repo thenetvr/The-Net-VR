@@ -2,37 +2,42 @@
 import React from "react";
 import Reveal from "../shared/Reveal";
 
+// -- About Last Night (Net VR Prototype stats):
+//     -- 4000+ servers booted
+//     -- Won best in play with GDC 2021 (get the logo from the og site
+//     -- 2000+ downloads on steam
+//     -- 6000+ creator followers
+
 export default function Stats() {
   return (
     <Reveal delay={0}>
       <div className="flex flex-col-reverse py-4 px-10 lg:px-20 xl:px-72 gap-6 md:flex-row items-center">
         <div className="md:w-1/2 w-full md:p-0">
           <div className="text-center md:text-left">
-            <h2 className="text-5xl font-bold">About Last Night</h2>
+            <h2 className="text-5xl font-bold">Our Accomplishments</h2>
             <p className="py-5 md:text-lg text-md">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
-              necessitatibus distinctio natus possimus ex suscipit sed obcaecati
-              sapiente non, laudantium ipsa laboriosam soluta porro ducimus.
-              Minima blanditiis aspernatur alias culpa.
+              Won best in play with GDC 2021 (get the logo from the og site).Won
+              best in play with GDC 2021 (get the logo from the og site).Won
+              best in play with GDC 2021 (get the logo from the og site).
             </p>
           </div>
           <div className="flex w-full py-12 gap-10 md:gap-16 justify-center md:justify-start text-lg">
             <Reveal delay={0.2}>
               <div>
-                <h2 className="text-4xl">20+</h2>
-                <p>Music Artists</p>
+                <h2 className="text-4xl">4000+</h2>
+                <p>Servers Booted</p>
               </div>
             </Reveal>
             <Reveal delay={0.4}>
               <div>
-                <h2 className="text-4xl">20+</h2>
-                <p>Music Artists</p>
+                <h2 className="text-4xl">2000+</h2>
+                <p>Steam Downloads</p>
               </div>
             </Reveal>
             <Reveal delay={0.6}>
               <div>
-                <h2 className="text-4xl">20+</h2>
-                <p>Music Artists</p>
+                <h2 className="text-4xl">6000+</h2>
+                <p>Creator Followers</p>
               </div>
             </Reveal>
           </div>

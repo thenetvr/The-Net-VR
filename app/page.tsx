@@ -13,6 +13,25 @@ import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./globals.css";
 import Background from "@/components/Background/Background";
 import SecondBG from "@/components/SecondBG/SecondBG";
+import { Metadata } from "next";
+import TheTeam from "@/components/TheTeam/TheTeam";
+
+const appTitle = "The Net VR";
+// for SEO customization
+export const metadata: Metadata = {
+  title: appTitle,
+  description: `${appTitle}: A digital space for the future of live stream`,
+  icons: {
+    icon: "/images/icon.png",
+    shortcut: "/images/icon.png",
+    apple: "/images/icon.png",
+    other: {
+      rel: "/images/icon.png",
+      url: "/images/icon.png",
+    },
+  },
+  manifest: "/manifest.json",
+};
 
 export default function Home() {
   return (
@@ -24,6 +43,7 @@ export default function Home() {
         <Stats />
         <PartyHost />
         <UpcomingDates />
+        <TheTeam />
         <WhatWeDo />
         <MiniGalary />
         <Testimonials />
