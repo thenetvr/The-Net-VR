@@ -33,6 +33,21 @@ export default function TheTeam() {
               name: "Samuel",
               role: "Lead",
             },
+            {
+              image: "https://picsum.photos/seed/random103/500/500",
+              name: "Samuel",
+              role: "Lead",
+            },
+            {
+              image: "https://picsum.photos/seed/random103/500/500",
+              name: "Samuel",
+              role: "Lead",
+            },
+            {
+              image: "https://picsum.photos/seed/random103/500/500",
+              name: "Samuel",
+              role: "Lead",
+            },
           ]}
         />
       </div>

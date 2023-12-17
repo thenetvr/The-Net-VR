@@ -52,7 +52,7 @@ export default function Carousel({
             </div>
           </Reveal>
         </div>
-        <div className="w-80 h-60 md:h-60 md:h-60 rounded-md overflow-hidden relative">
+        <div className="w-80 h-60 md:h-60 md:w-80 rounded-md overflow-hidden relative">
           <Reveal delay={0} right={true}>
             <div
               ref={carouselRef}
@@ -73,7 +73,7 @@ export default function Carousel({
                         {v.name}
                       </a>
                     </h1>
-                    <p className="">{v.role}</p>
+                    <p className="text-center md:text-start">{v.role}</p>
                   </div>
                   <p className="pt-2">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -85,6 +85,22 @@ export default function Carousel({
               ))}
             </div>
           </Reveal>
+        </div>
+      </div>
+
+      <div className="w-full flex justify-center p-3">
+        <div className="flex gap-2">
+          {data.map((member, idx) => (
+            <div
+              key={idx}
+              className={`${
+                currentImg === idx
+                  ? `bg-cyan-800 hover:bg-cyan-200`
+                  : `bg-red-800 hover:bg-red-200`
+              } w-3 h-3 cursor-pointer rounded transition-all`}
+              onClick={() => setCurrentImg(idx)}
+            ></div>
+          ))}
         </div>
       </div>
 
