@@ -2,7 +2,6 @@
 import Button from "../shared/Button";
 import Reveal from "../shared/Reveal";
 import Socials from "../shared/Socials";
-import heroImage from "../../public/screenshots/screenshot-hero-1.jpg"
 
 export default function Hero() {
   return (
