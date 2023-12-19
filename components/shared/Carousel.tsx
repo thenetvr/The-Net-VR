@@ -30,7 +30,7 @@ export default function Carousel({
   return (
     <div className="w-full">
       <div className="flex flex-col md:flex-row justify-center items-center gap-10">
-        <div className="w-80 h-60 rounded-md overflow-hidden relative">
+        <div className="w-80 h-80 rounded-md overflow-hidden relative">
           <Reveal delay={0} left={true}>
             <div
               ref={carouselRef}
@@ -52,7 +52,7 @@ export default function Carousel({
             </div>
           </Reveal>
         </div>
-        <div className="w-80 h-60 md:h-60 md:w-80 rounded-md overflow-hidden relative">
+        <div className="w-80 h-80 rounded-md overflow-hidden relative">
           <Reveal delay={0} right={true}>
             <div
               ref={carouselRef}

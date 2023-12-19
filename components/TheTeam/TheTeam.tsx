@@ -3,6 +3,7 @@
 import React from "react";
 import Carousel from "../shared/Carousel";
 import Reveal from "../shared/Reveal";
+import { TeamMembers } from "../../utils/constants";
 
 export default function TheTeam() {
   return (
@@ -16,40 +17,7 @@ export default function TheTeam() {
         </Reveal>
       </div>
       <div className="flex w-full justify-center">
-        <Carousel
-          data={[
-            {
-              image: "/images/logo.png",
-              name: "Noah",
-              role: "Lead",
-            },
-            {
-              image: "https://picsum.photos/seed/random102/500/500",
-              name: "Mike",
-              role: "Lead",
-            },
-            {
-              image: "https://picsum.photos/seed/random103/500/500",
-              name: "Samuel",
-              role: "Lead",
-            },
-            {
-              image: "https://picsum.photos/seed/random103/500/500",
-              name: "Samuel",
-              role: "Lead",
-            },
-            {
-              image: "https://picsum.photos/seed/random103/500/500",
-              name: "Samuel",
-              role: "Lead",
-            },
-            {
-              image: "https://picsum.photos/seed/random103/500/500",
-              name: "Samuel",
-              role: "Lead",
-            },
-          ]}
-        />
+        <Carousel data={TeamMembers} />
       </div>
     </div>
   );
