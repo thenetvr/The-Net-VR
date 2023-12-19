@@ -2,6 +2,7 @@
 import Button from "../shared/Button";
 import Reveal from "../shared/Reveal";
 import Socials from "../shared/Socials";
+import heroImage from "../../public/screenshots/screenshot-hero-1.jpg"
 
 export default function Hero() {
   return (
@@ -24,15 +25,14 @@ export default function Hero() {
         </Reveal>
         <Reveal delay={0.3}>
           <p className="py-6">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-            accusamus praesentium at nesciunt aliquam, rerum non sapiente ut
-            eaque quasi et totam. Voluptatibus quo quas officia sequi. Labore,
-            ab laudantium.
+            The Net VR challenges the impersonal nature of streaming by allowing viewers to interact in a 3D space. 
+            We deepen the streaming experience by fostering personal connections amongst viewers and providing a new 
+            and exciting potential for revenue to streamers.
           </p>
         </Reveal>
         <Reveal delay={0.4}>
           <div className="flex items-center gap-8 flex-col md:flex-row">
-            <Button text="Get In Touch" />
+            <Button text="Get In Touch" link="https://www.thenetvr.com/#contact"/>
             <Socials />
           </div>
         </Reveal>
@@ -41,7 +41,7 @@ export default function Hero() {
         <Reveal delay={0} right={true}>
           <img
             className="rounded"
-            src="https://media.mutualart.com/Images/2023_09/13/16/163841441/katia-zoubtchenko-undergrowth--1964-15WQ2.Jpeg?w=480"
+            src="../../screenshots/screenshot-hero-2.jpg"
             alt="test"
             width={450}
           />
