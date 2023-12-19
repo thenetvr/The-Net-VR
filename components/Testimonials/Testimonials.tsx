@@ -49,9 +49,8 @@ export default function Testimonials() {
                   <button
                     key={idx}
                     onClick={() => setOption(test)}
-                    className={`bg-red-300 px-10 py-5 rounded-full text-black flex items-center justify-center gap-5 w-full ${
-                      test === option && "bg-red-500"
-                    }`}
+                    className={`bg-red-300 px-10 py-5 rounded-full text-black flex items-center justify-center gap-5 w-full ${test === option && "bg-red-500"
+                      }`}
                   >
                     <img
                       className="rounded-lg"
