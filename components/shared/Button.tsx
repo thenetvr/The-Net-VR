@@ -1,7 +1,9 @@
-export default function Button({ text }: { text: string }) {
+export default function Button(props: { text: string, link?: string }) {
   return (
-    <button className="bg-red-800 rounded text-white p-5 hover:bg-red-400 hover:text-black transition-all">
-      {text}
-    </button>
+    <a href={props.link}>
+      <button  className="bg-red-800 rounded text-white p-5 hover:bg-red-400 hover:text-black transition-all">
+        {props.text}
+      </button>
+    </a>
   );
 }
