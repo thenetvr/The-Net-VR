@@ -2,6 +2,7 @@
 
 import Reveal from "../shared/Reveal";
 
+
 export default function News() {
 
   // Proably can make this into prop so can call it from somewhere else
@@ -34,8 +35,10 @@ export default function News() {
               <div>
                 <div className="flex justify-center">
                   <img
+                    style={{ width: "500px", height: "400px" }}
                     src={card.image}
                     alt="test"
+
                   />
                 </div>
                 <div className="flex flex-col gap-4 py-4">
