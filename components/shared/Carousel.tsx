@@ -9,6 +9,7 @@ export default function Carousel({
   data: {
     image: string;
     name: string;
+    description: string;
     role: string;
   }[];
 }) {
@@ -75,12 +76,7 @@ export default function Carousel({
                     </h1>
                     <p className="text-center md:text-start">{v.role}</p>
                   </div>
-                  <p className="pt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Laborum esse omnis magnam delectus temporibus! Optio
-                    repellendus sunt deserunt illum, unde, iste accusantium
-                    fugiat hic qui rerum eaque quia inventore ad.
-                  </p>
+                  <p className="pt-2">{v.description}</p>
                 </div>
               ))}
             </div>
