@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Reveal from "../shared/Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import "./UpcomingDates.css";
 
 export default function UpcomingDates() {
   const [option, setOption] = useState(1);
@@ -11,7 +12,7 @@ export default function UpcomingDates() {
   return (
     <div
       id="upcoming-events"
-      className="py-4 px-10 lg:px-20 xl:px-72 items-center text-center"
+      className="upcoming-events py-4 px-10 lg:px-20 xl:px-72 items-center text-center"
     >
       <Reveal delay={0}>
         <div className="uppercase text-xl">Dates For Our</div>
@@ -21,8 +22,11 @@ export default function UpcomingDates() {
       </Reveal>
       <Reveal delay={0.2}>
         <p className="text-xl">
-          View our event calendar to see upcoming events. Purchase tickets, VIP
-          Bar Cards, or reserve VIP tables with bottle service.
+        The net vr is getting ready to re-do the prototype to release a
+        more scalable video game for everyone to enjoy. Exact detailed
+        dates and times will be provided closer to when we're ready. Follow
+        along in the discord (**with link**) for more information
+        (https://discord.gg/MksjUMU69Z)
         </p>
       </Reveal>
       <Reveal delay={0.3}>

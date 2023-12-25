@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import useHash from "../../utils/useHash";
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import Image from "next/image";
 
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const hash = useHash();
 
   // check scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -53,21 +55,21 @@ export default function Navbar() {
         <div className={`nav-elements ${showNavbar && "active"}`}>
           <ul className="text-center gap-4">
             <li className="mr-0">
-              <Link href="/" className="text-teal-300">
+              <Link href="/" className={hash == "" ? "text-teal-300" : ""}>
                 Home
               </Link>
             </li>
             <li className="mr-0">
-              <Link href="#party-host">Party Host</Link>
+              <Link href="#party-host" className={hash == "party-host" ? "text-teal-300" : ""}>Our Theaters</Link>
             </li>
             <li className="mr-0">
-              <Link href="#upcoming-events">Upcoming Events</Link>
+              <Link href="#upcoming-events" className={hash == "upcoming-events" ? "text-teal-300" : ""}>Upcoming Events</Link>
             </li>
             <li className="mr-0">
-              <Link href="/about">About</Link>
+              <Link href="/about" className={""}>About</Link>
             </li>
             <li className="mr-0">
-              <Link href="#contact">Contact</Link>
+              <Link href="#contact" className={hash == "contact" ? "text-teal-300" : ""}>Contact</Link>
             </li>
           </ul>
         </div>

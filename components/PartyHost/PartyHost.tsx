@@ -18,7 +18,7 @@ export default function PartyHost() {
     >
       <Reveal delay={0.2}>
         <h1 className="text-center md:text-start text-5xl font-bold">
-          Our Party Host
+          Our Theaters
         </h1>
       </Reveal>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
