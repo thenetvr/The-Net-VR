@@ -15,6 +15,10 @@
   z-index: 1000;
 }
 
+.mr-0:hover {
+  background-color: #5a4fcf;
+}
+
 .menu-icon {
   display: none;
 }

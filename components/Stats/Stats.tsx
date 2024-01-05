@@ -1,12 +1,17 @@
 "use client";
+
 import React from "react";
 import Reveal from "../shared/Reveal";
+import Image from "next/image";
 
 // -- About Last Night (Net VR Prototype stats):
 //     -- 4000+ servers booted
 //     -- Won best in play with GDC 2021 (get the logo from the og site
 //     -- 2000+ downloads on steam
 //     -- 6000+ creator followers
+
+const gdc_image_name = "GDC_Winner-0b2dc93b.png"
+const gdc_image_description = "GDC Vault Logo"
 
 export default function Stats() {
   return (
@@ -16,9 +21,10 @@ export default function Stats() {
           <div className="text-center md:text-left">
             <h2 className="text-5xl font-bold">Our Accomplishments</h2>
             <p className="py-5 md:text-lg text-md">
-              Won best in play with GDC 2021 (get the logo from the og site).Won
-              best in play with GDC 2021 (get the logo from the og site).Won
-              best in play with GDC 2021 (get the logo from the og site).
+              Won best in play with GDC 2021. <Image src={`/images/stats/${gdc_image_name}`}
+                  alt={gdc_image_description}
+                  width={50}
+                  height={50}></Image>
             </p>
           </div>
           <div className="flex w-full py-12 gap-10 md:gap-16 justify-center md:justify-start text-lg">
