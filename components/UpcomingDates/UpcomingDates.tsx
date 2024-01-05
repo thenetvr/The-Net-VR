@@ -2,14 +2,17 @@
 import React, { useState } from "react";
 import Reveal from "../shared/Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import "./UpcomingDates.css";
 
 export default function UpcomingDates() {
   const [option, setOption] = useState(1);
 
+  const upcoming_event_dates = ["Jan 2024", "Feb 2024", "Mar 2024"];
+
   return (
     <div
       id="upcoming-events"
-      className="py-4 px-10 lg:px-20 xl:px-72 items-center text-center"
+      className="upcoming-events py-4 px-10 lg:px-20 xl:px-72 items-center text-center"
     >
       <Reveal delay={0}>
         <div className="uppercase text-xl">Dates For Our</div>
@@ -19,8 +22,11 @@ export default function UpcomingDates() {
       </Reveal>
       <Reveal delay={0.2}>
         <p className="text-xl">
-          View our event calendar to see upcoming events. Purchase tickets, VIP
-          Bar Cards, or reserve VIP tables with bottle service.
+        The net vr is getting ready to re-do the prototype to release a
+        more scalable video game for everyone to enjoy. Exact detailed
+        dates and times will be provided closer to when we're ready. Follow
+        along in the discord (**with link**) for more information
+        (https://discord.gg/MksjUMU69Z)
         </p>
       </Reveal>
       <Reveal delay={0.3}>
@@ -50,17 +56,17 @@ export default function UpcomingDates() {
                       transition={{ duration: 1 }}
                     >
                       <h1 className="text-3xl font-bold">
-                        Skillet at DJO Night Club{test}
+                        Upcoming Beta Play Test {test}
                       </h1>
                       <h2 className="font-medium py-2">
-                        22 december / doors open at 23:00
+                        {upcoming_event_dates[idx]}
                       </h2>
                       <p className="py-10">
-                        Legends of American Hard Rock – Skillet Music for the
-                        first time with a solo concert in Lviv!On November 19th
-                        at Malevich Night Club, rockers will be presenting a new
-                        record as part of the Victorious Tour, and it will be
-                        something incredible!
+                      The Net VR is getting ready to re-do the prototype to release a
+                      more scalable video game for everyone to enjoy. Exact detailed
+                      dates and times will be provided closer to when we're ready.
+                      Follow along in the discord (with link) for more information
+                      (<a href="https://discord.gg/MksjUMU69Z">https://discord.gg/MksjUMU69Z</a>)
                       </p>
                       <p className="text-3xl font-bold">$40</p>
                       <div className="py-3">

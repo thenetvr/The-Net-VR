@@ -5,9 +5,10 @@ interface Props {
   children: JSX.Element;
   delay: number;
   right?: boolean;
+  left?: boolean;
 }
 
-export default function Reveal({ children, delay, right }: Props) {
+export default function Reveal({ children, delay, right, left }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -23,7 +24,11 @@ export default function Reveal({ children, delay, right }: Props) {
     <div>
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: right ? 0 : 75, x: right ? 75 : 0 },
+          hidden: {
+            opacity: 0,
+            y: right || left ? 0 : 75,
+            x: right ? 75 : left ? -75 : 0,
+          },
           visible: { opacity: 1, y: 0, x: 0 },
         }}
         initial="hidden"

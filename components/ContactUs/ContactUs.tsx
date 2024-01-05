@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 // INPUT NEXUI DOCS = https://nextui.org/docs/components/input
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import Socials from "../shared/Socials";
 import Reveal from "../shared/Reveal";
 import Button from "../shared/Button";
+import isValidEmail from "@/utils/utils";
 
 export default function ContactUs() {
+  const [errorMessage, setErrorMessage] = useState("");
   const [state, dispatch] = useReducer(
     // @ts-ignore
     (state, action) => ({
@@ -24,10 +26,39 @@ export default function ContactUs() {
     }
   );
 
-  const handleFormSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    console.log(state);
-    return "test";
+    const { first, last, email, phone, message } = state;
+    setErrorMessage("");
+
+    // error handling
+    if (!first || !last || !email || !phone || !message) {
+      setErrorMessage("Please Make A Valid Entry For All Fields");
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setErrorMessage("Please Enter A Valid Email");
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/contact`, {
+        method: "POST",
+        body: JSON.stringify({
+          first,
+          last,
+          email,
+          phone,
+          message,
+        }),
+      });
+      const result = await res.json();
+      console.log(result);
+      setErrorMessage("Your Message Was Sent Successfully!");
+    } catch (e) {
+      console.log(e);
+      setErrorMessage("Something Went Wrong. Please Try Again Later.");
+    }
   };
 
   return (
@@ -132,6 +163,11 @@ export default function ContactUs() {
             />
           </Reveal>
         </div>
+        {errorMessage && (
+          <p className="py-3 text-center w-full italic text-red-400">
+            {errorMessage}
+          </p>
+        )}
         <div className="p-4 w-full">
           <Reveal delay={1}>
             <div onClick={handleFormSubmit}>

@@ -1,0 +1,86 @@
+export const TeamMembers = [
+  {
+    image: "/images/pfp/Fajarda-Noah.png",
+    name: "Noah Fajarda",
+    role: "Lead Full-Stack Developer",
+    description: "Noah is a graduate from the University of California, Irvine. He has experience in developing highly-scalable Full-Stack Applications. He enjoys traveling to different countries, analyzing and playing different sports. Link to Website: https://noahfajarda.vercel.app/",
+  },
+  {
+    image: "/images/pfp/Doran-Kyle.png",
+    name: "Kyle Doran",
+    role: "CEO",
+    description: "Kyle's first stint of VR dates back to the Nintendo Virtual Boy in 1995 and has been passionate about gaming ever since. ",
+  },
+  {
+    image: "/images/pfp/Oyeneyin-Samuel.jpg",
+    name: "Samuel Oyeneyin",
+    role: "Full-Stack Developer",
+    description: "Samuel is a student at University of Maryland Baltimore Couty. He has experience in web development and web design. He enjoys playing video games and drawing in his free time.",
+  },
+  {
+    image: "/images/pfp/Ganji-Sushant.jpeg",
+    name: "Sushant Ganji",
+    role: "Unity Developer",
+    description: "Sushant is a student at University of Texas at Dallas majoring in Computer Science. Sushant's intrest in VR started from playing random his friends PC games with the oculus and has wanted to explore the technology ever since. Sushant's hobbys are Basketball, Dancing, and playing video games. ",
+  },
+  {
+    image: "/images/pfp/Riddick-Carolina.jpg",
+    name: "Carolina Riddick",
+    role: "Unity Developer",
+    description: "Carolina is a student at National University Technology and also has a degree in Physiotherapist. She loves science, health, sports and biomedical science. In the future she would like to create VR environment to apply in healthcare industry.",
+  },
+  {
+    image: "/images/pfp/Hannan-Abdul.png",
+    name: "Abdul Hannan",
+    role: "Unity Developer",
+    description: "Hannan is from Karachi, Pakistan. He loves reading novels and cooking (picked up chess these days but things ain't looking good) Being from Pakistan, there aren't a lot of people who share his hobbies and interests so he enjoys the internet a lot.",
+  },
+  {
+    image: "/images/pfp/Sun-Andrew.jpg",
+    name: "Andrew Sun",
+    role: "Full-Stack Developer",
+    description: "Andrew is a graduate from Stony Brook University with a Bachelor's in Computer Science and Applied Mathematics/Statistics.",
+  },
+  {
+    image: "/images/pfp/Herringer-Greg.jpeg",
+    name: "Greg Herringer",
+    role: "Full-Stack Developer",
+    description: "Greg is a graduate from the University of Arizona, former educator abroad now turned software developer. Experienced in full-stack, backend leaning. Loves music (listening & playing), video games, travel, & outdoors",
+  },
+  {
+    image: "/images/pfp/Tucker-Alan.jpg",
+    name: "Alan Tucker",
+    role: "Lead Unity Developer",
+    description: "Alan is an energetic project manager. He is fascinated with technology and its impact on human psychology. Seeking a Masters of Human Computer Interaction at Iowa State University.",
+  },
+  {
+    image: "/images/pfp/Jovi-Usude-Usume.jpg",
+    name: "Usude Usume Jovi",
+    role: "Unity Developer",
+    description: "Usume is a graduate from California State University Chico with a Bachelor's of Science in Game Development. He enjoys travel and the occasional round of golf",
+  },
+  {
+    image: "/images/pfp/Xie-Mike.jpeg",
+    name: "Mike Xie",
+    role: "CTO",
+    description: "Mike is currently the Co-Founder and CTO of the Net VR. He has played almost every genre of video game and loves to understand the meta-game of each one that he has played.",
+  },
+  {
+    image: "/images/pfp/Kugelmas-Sarah.jpg",
+    name: "Sarah Kugelmas",
+    role: "Unity Developer",
+    description: "Sarah graduated from Case Western Reserve University with a Bachelor's of Science in Computer Science, where she studied software, web, and game development, as well as computer networks and security.",
+  },
+  {
+    image: "/images/pfp/Zheng-Yupeng.jpg",
+    name: "Yupeng Zheng",
+    role: "Unity Developer",
+    description: "Yupeng graduated from the University of the Pacific with a Bachelor of Science degree. He possesses experience in software development and web application design. He is both a technology lover and a car enthusiast.",
+  },
+  {
+    image: "/images/pfp/Lonergan-Robert.jpg",
+    name: "Robert Lonergan",
+    role: "Business Developer",
+    description: "Robert is a student at the University of Texas at Dallas with a Bachelor's Degree in IT with a focus in cyber security. They hope to be a cyber security analyst and currently work as the social media manager and documenter.",
+  },
+]
