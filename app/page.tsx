@@ -1,6 +1,7 @@
 import ContactUs from "@/components/ContactUs/ContactUs";
 import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
+import Influencer from "@/components/Influencer/Influencer";
 import InTouch from "@/components/InTouch/InTouch";
 import MiniGalary from "@/components/MiniGalary/MiniGalary";
 import Navbar from "@/components/Navbar/Navbar";
@@ -39,6 +40,7 @@ export default function Home() {
       <Navbar />
       <div className="main-content">
         <Hero />
+        <Influencer />
         <InTouch />
         <Stats />
         <PartyHost />
