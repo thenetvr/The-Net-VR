@@ -24,18 +24,23 @@ export default function Hero() {
         </Reveal>
         <Reveal delay={0.3}>
           <p className="py-6">
-            The Net VR challenges the impersonal nature of streaming by allowing viewers to interact in a 3D space. 
-            We deepen the streaming experience by fostering personal connections amongst viewers and providing a new 
-            and exciting potential for revenue to streamers.
+            The Net VR challenges the impersonal nature of streaming by allowing
+            viewers to interact in a 3D space. We deepen the streaming
+            experience by fostering personal connections amongst viewers and
+            providing a new and exciting potential for revenue to streamers.
           </p>
         </Reveal>
         <Reveal delay={0.4}>
           <div className="flex items-center gap-8 flex-col md:flex-row">
-            <Button text="Get In Touch" link="https://www.thenetvr.com/#contact"/>
+            <Button
+              text="Get In Touch"
+              link="https://www.thenetvr.com/#contact"
+            />
             <Socials />
           </div>
         </Reveal>
       </div>
+
       <div className="md:w-1/2 flex md:justify-end justify-center w-full">
         <Reveal delay={0} right={true}>
           <img

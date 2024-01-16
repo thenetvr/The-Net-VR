@@ -32,6 +32,7 @@ export default function Navbar() {
         <div className="logo rounded-xl">
           <Image src="/images/logo.png" alt="logo" width={150} height={150} />
         </div>
+        {/* mobile menu */}
         <div
           className="menu-icon"
           onClick={() => {
@@ -52,24 +53,42 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        {/* desktop menu */}
         <div className={`nav-elements ${showNavbar && "active"}`}>
           <ul className="text-center gap-4">
-            <li className="mr-0">
+            <li className="mr-0 transition-all">
               <Link href="/" className={hash == "" ? "text-teal-300" : ""}>
                 Home
               </Link>
             </li>
-            <li className="mr-0">
-              <Link href="#party-host" className={hash == "party-host" ? "text-teal-300" : ""}>Our Theaters</Link>
+            <li className="mr-0 transition-all">
+              <Link href="#about" className={""}>
+                About
+              </Link>
             </li>
-            <li className="mr-0">
-              <Link href="#upcoming-events" className={hash == "upcoming-events" ? "text-teal-300" : ""}>Upcoming Events</Link>
+            <li className="mr-0 transition-all">
+              <Link
+                href="#our-theaters"
+                className={hash == "our-theaters" ? "text-teal-300" : ""}
+              >
+                Our Theaters
+              </Link>
             </li>
-            <li className="mr-0">
-              <Link href="/about" className={""}>About</Link>
+            <li className="mr-0 transition-all">
+              <Link
+                href="#upcoming-events"
+                className={hash == "upcoming-events" ? "text-teal-300" : ""}
+              >
+                Upcoming Events
+              </Link>
             </li>
-            <li className="mr-0">
-              <Link href="#contact" className={hash == "contact" ? "text-teal-300" : ""}>Contact</Link>
+            <li className="mr-0 transition-all">
+              <Link
+                href="#contact"
+                className={hash == "contact" ? "text-teal-300" : ""}
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
