@@ -10,6 +10,7 @@ export default function Carousel({
     image: string;
     name: string;
     description: string;
+    linkedIn: string;
     role: string;
   }[];
 }) {
@@ -30,6 +31,44 @@ export default function Carousel({
 
   return (
     <div className="w-full">
+      {/* controls */}
+      <div className="flex justify-center gap-2">
+        <button
+          disabled={currentImg == 0}
+          onClick={() => setCurrentImg((prev) => prev - 1)}
+          className={`border px-4 py-2 font-bold ${
+            currentImg == 0 && "opacity-50"
+          }`}
+        >
+          {"<"}
+        </button>
+        <button
+          disabled={currentImg == data.length - 1}
+          onClick={() => setCurrentImg((prev) => prev + 1)}
+          className={`border px-4 py-2 font-bold ${
+            currentImg == data.length - 1 && "opacity-50"
+          }`}
+        >
+          {">"}
+        </button>
+      </div>
+
+      <div className="w-full flex justify-center p-3 mb-3">
+        <div className="flex gap-2">
+          {data.map((member, idx) => (
+            <div
+              key={idx}
+              className={`${
+                currentImg === idx
+                  ? `bg-slate-500`
+                  : `bg-slate-800 hover:bg-slate-500`
+              } w-3 h-3 cursor-pointer rounded transition-all`}
+              onClick={() => setCurrentImg(idx)}
+            ></div>
+          ))}
+        </div>
+      </div>
+
       <div className="flex flex-col md:flex-row justify-center items-center gap-10">
         <div className="w-80 h-80 rounded-md overflow-hidden relative">
           <Reveal delay={0} left={true}>
@@ -68,7 +107,7 @@ export default function Carousel({
                     <h1 className="text-3xl text-center md:text-start">
                       <a
                         className="hover:text-black transition-all"
-                        href="https://www.linkedin.com/in/noah-fajarda/"
+                        href={`https://www.linkedin.com/in/${v.linkedIn}/`}
                         target="_blank"
                       >
                         {v.name}
@@ -82,44 +121,6 @@ export default function Carousel({
             </div>
           </Reveal>
         </div>
-      </div>
-
-      <div className="w-full flex justify-center p-3">
-        <div className="flex gap-2">
-          {data.map((member, idx) => (
-            <div
-              key={idx}
-              className={`${
-                currentImg === idx
-                  ? `bg-cyan-800 hover:bg-cyan-200`
-                  : `bg-red-800 hover:bg-red-200`
-              } w-3 h-3 cursor-pointer rounded transition-all`}
-              onClick={() => setCurrentImg(idx)}
-            ></div>
-          ))}
-        </div>
-      </div>
-
-      {/* controls */}
-      <div className="flex justify-center mt-3 gap-2">
-        <button
-          disabled={currentImg == 0}
-          onClick={() => setCurrentImg((prev) => prev - 1)}
-          className={`border px-4 py-2 font-bold ${
-            currentImg == 0 && "opacity-50"
-          }`}
-        >
-          {"<"}
-        </button>
-        <button
-          disabled={currentImg == data.length - 1}
-          onClick={() => setCurrentImg((prev) => prev + 1)}
-          className={`border px-4 py-2 font-bold ${
-            currentImg == data.length - 1 && "opacity-50"
-          }`}
-        >
-          {">"}
-        </button>
       </div>
     </div>
   );

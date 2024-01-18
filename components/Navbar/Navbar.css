@@ -16,7 +16,7 @@
 }
 
 .mr-0:hover {
-  background-color: #5a4fcf;
+  color: #0e9790;
 }
 
 .menu-icon {
@@ -112,7 +112,7 @@
   width: 40px;
 }
 .burger:hover .strip div {
-  background: aqua;
+  color: aqua;
 }
 
 .burger-strip-5 div {

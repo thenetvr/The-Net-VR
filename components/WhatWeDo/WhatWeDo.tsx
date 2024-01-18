@@ -26,16 +26,17 @@ import Reveal from "../shared/Reveal";
 //     -- 6.
 
 const core_value_names = ["Time - Past, Present, & Future", "Space", "Matter"];
-const core_value_descriptions =
-  ["We care about peoples time. When and where they spend it is important to us. Live time is the only part that we can control. When the event is live we have the best understanding and full context of an event that is happening in space. This allows us to build for the future and document appropriately for the past.",
-   "3D space is the key to unlocking virtual worlds. What comes with space is proper boundary settings.",
-   "Whether it be bits or atoms we focus share on making conscious connections with with other conscious bodies whether it be in the virtual world or in reality."];
+const core_value_descriptions = [
+  "We care about peoples time. When and where they spend it is important to us. Live time is the only part that we can control. When the event is live we have the best understanding and full context of an event that is happening in space. This allows us to build for the future and document appropriately for the past.",
+  "3D space is the key to unlocking virtual worlds. What comes with space is proper boundary settings.",
+  "Whether it be bits or atoms we focus share on making conscious connections with with other conscious bodies whether it be in the virtual world or in reality.",
+];
 
 export default function WhatWeDo() {
   return (
     <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">
       <Reveal delay={0}>
-        <h1 className="text-4xl font-bold py-16 lg:text-left text-center">
+        <h1 className="text-4xl font-bold py-4 lg:text-left text-center">
           Core Values
         </h1>
       </Reveal>
@@ -53,9 +54,7 @@ export default function WhatWeDo() {
                   <h1 className="py-4 font-semibold text-2xl">
                     {core_value_names[idx]}
                   </h1>
-                  <p>
-                    {core_value_descriptions[idx]}
-                  </p>
+                  <p>{core_value_descriptions[idx]}</p>
                 </div>
               </div>
             </Reveal>

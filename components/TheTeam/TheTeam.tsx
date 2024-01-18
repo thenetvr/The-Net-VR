@@ -13,7 +13,7 @@ export default function TheTeam() {
           <div className="uppercase text-xl">Meet Our Incredible</div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="p-6 text-4xl font-bold text-center">Team</h1>
+          <h1 className="p-6 pb-0 text-4xl font-bold text-center">Team</h1>
         </Reveal>
       </div>
       <div className="flex w-full justify-center">

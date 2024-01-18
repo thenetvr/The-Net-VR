@@ -16,6 +16,7 @@ import Background from "@/components/Background/Background";
 import SecondBG from "@/components/SecondBG/SecondBG";
 import { Metadata } from "next";
 import TheTeam from "@/components/TheTeam/TheTeam";
+import About from "@/components/About/About";
 
 const appTitle = "The Net VR";
 // for SEO customization
@@ -42,6 +43,7 @@ export default function Home() {
         <Hero />
         <Influencer />
         <InTouch />
+        <About />
         <Stats />
         <PartyHost />
         <UpcomingDates />
@@ -53,7 +55,7 @@ export default function Home() {
         <ContactUs />
         <Footer />
       </div>
-      <Background />
+      {/* <Background /> */}
       <SecondBG />
     </main>
   );
