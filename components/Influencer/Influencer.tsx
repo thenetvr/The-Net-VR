@@ -4,6 +4,8 @@ import Reveal from "../shared/Reveal";
 import Button from "../shared/Button";
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
+import isValidEmail from "@/utils/utils";
+import { Resend } from 'resend';
 
 export default function Influencer() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -24,6 +26,55 @@ export default function Influencer() {
       twitter: ""
     }
   );
+
+  const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const { first, last, email, username, primary_category, total_followers, streaming_channel, twitter } = state;
+    setErrorMessage("");
+
+    // error handling
+    if (!first || !last || !email || !username || !primary_category || !total_followers || !streaming_channel || !twitter) {
+      setErrorMessage("Please Make A Valid Entry For All Fields");
+      return;
+    }
+    if (!isValidEmail(email)) {
+      setErrorMessage("Please Enter A Valid Email");
+      return;
+    }
+
+    
+    const resend = new Resend('API_KEY');
+
+    try {
+      const { data, error } = await resend.emails.send({
+        from: 'source',
+        to: ['destination'],
+        subject: 'Sending Email',
+        html: '<strong>HTML Stuff</strong>',
+      });
+      if (error) {
+        return console.error({ error });
+      }
+      console.log({ data });
+      /*const res = await fetch(`/api/contact`, {
+        method: "POST",
+        body: JSON.stringify({
+          first,
+          last,
+          email,
+          username,
+          primary_category,
+          total_followers,
+          streaming_channel,
+          twitter,
+        }),
+      });*/
+      setErrorMessage("Your Message Was Sent Successfully!");
+    } catch (e) {
+      console.log(e);
+      setErrorMessage("Something Went Wrong. Please Try Again Later.");
+    }
+  };
 
   return (
     <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">
@@ -163,7 +214,7 @@ export default function Influencer() {
         )}
         <div className="p-4 w-full">
           <Reveal delay={1.6}>
-            <div>
+            <div onClick={() => handleFormSubmit}>
               <Button text="Submit" link="#"/>
             </div>
           </Reveal>
