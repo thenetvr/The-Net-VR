@@ -28,6 +28,7 @@ export default function Influencer() {
   );
 
   const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Covfefe")
     e.preventDefault();
     const { first, last, email, username, primary_category, total_followers, streaming_channel, twitter } = state;
     setErrorMessage("");
@@ -42,33 +43,28 @@ export default function Influencer() {
       return;
     }
 
-    
-    const resend = new Resend('API_KEY');
+    const resend = new Resend('re_dDgLUZWr_L5cBE');
 
     try {
       const { data, error } = await resend.emails.send({
-        from: 'source',
-        to: ['destination'],
-        subject: 'Sending Email',
-        html: '<strong>HTML Stuff</strong>',
+        from: 'info@thenetvr.com',
+        to: [email],
+        subject: `Welcome, ${username}!`,
+        html: `<strong>Hello, ${username}! We are sending this email to verify your information.</strong>
+              <br>
+              First Name:  ${first}<br>
+              Last Name:  ${last}<br>
+              Email: ${email}<br>
+              Username: ${username}<br>
+              Primary Category: ${primary_category}<br>
+              Total Followers: ${total_followers}<br>
+              Streaming Channel: ${streaming_channel}<br>
+              Twitter: ${twitter}<br>`,
       });
       if (error) {
         return console.error({ error });
       }
       console.log({ data });
-      /*const res = await fetch(`/api/contact`, {
-        method: "POST",
-        body: JSON.stringify({
-          first,
-          last,
-          email,
-          username,
-          primary_category,
-          total_followers,
-          streaming_channel,
-          twitter,
-        }),
-      });*/
       setErrorMessage("Your Message Was Sent Successfully!");
     } catch (e) {
       console.log(e);
@@ -214,7 +210,7 @@ export default function Influencer() {
         )}
         <div className="p-4 w-full">
           <Reveal delay={1.6}>
-            <div onClick={() => handleFormSubmit}>
+            <div onClick={handleFormSubmit}>
               <Button text="Submit" link="#"/>
             </div>
           </Reveal>
