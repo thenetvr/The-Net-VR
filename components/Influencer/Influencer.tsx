@@ -6,6 +6,7 @@ import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 import isValidEmail from "@/utils/utils";
 import { Resend } from 'resend';
+import InfluencerSignup from "./InfluencerSignup";
 
 export default function Influencer() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,49 +29,24 @@ export default function Influencer() {
   );
 
   const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("Covfefe")
     e.preventDefault();
     const { first, last, email, username, primary_category, total_followers, streaming_channel, twitter } = state;
-    setErrorMessage("");
 
     // error handling
     if (!first || !last || !email || !username || !primary_category || !total_followers || !streaming_channel || !twitter) {
-      setErrorMessage("Please Make A Valid Entry For All Fields");
-      return;
+        console.error("Please Make A Valid Entry For All Fields");
+        return;
     }
     if (!isValidEmail(email)) {
-      setErrorMessage("Please Enter A Valid Email");
-      return;
+        console.error("Please Enter A Valid Email");
+        return;
     }
 
-    const resend = new Resend('re_dDgLUZWr_L5cBE');
+    console.log("Covfefe");
 
-    try {
-      const { data, error } = await resend.emails.send({
-        from: 'info@thenetvr.com',
-        to: [email],
-        subject: `Welcome, ${username}!`,
-        html: `<strong>Hello, ${username}! We are sending this email to verify your information.</strong>
-              <br>
-              First Name:  ${first}<br>
-              Last Name:  ${last}<br>
-              Email: ${email}<br>
-              Username: ${username}<br>
-              Primary Category: ${primary_category}<br>
-              Total Followers: ${total_followers}<br>
-              Streaming Channel: ${streaming_channel}<br>
-              Twitter: ${twitter}<br>`,
-      });
-      if (error) {
-        return console.error({ error });
-      }
-      console.log({ data });
-      setErrorMessage("Your Message Was Sent Successfully!");
-    } catch (e) {
-      console.log(e);
-      setErrorMessage("Something Went Wrong. Please Try Again Later.");
-    }
-  };
+    // send data to influencer signup.
+    InfluencerSignup(first, last, email, username, primary_category, total_followers, streaming_channel, twitter);
+  }
 
   return (
     <div className="flex flex-col py-12 gap-6 px-10 lg:px-20 xl:px-72 lg:py-16">
