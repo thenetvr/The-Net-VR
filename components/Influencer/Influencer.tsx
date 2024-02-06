@@ -42,8 +42,6 @@ export default function Influencer() {
         return;
     }
 
-    console.log("Covfefe");
-
     // send data to influencer signup.
     InfluencerSignup(first, last, email, username, primary_category, total_followers, streaming_channel, twitter);
   }

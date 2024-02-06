@@ -3,8 +3,9 @@ import { Resend } from 'resend';
 
 export default async function InfluencerSignup(first: string, last: string, email: string, username: string, primary_category: string, total_followers: number, streaming_channel: string, twitter: string) {
 
-    // TODO: Load API Key from environment variables
-    const resend = new Resend('API-KEY');
+    /* Load API Key from environment variables */
+    var secret = process.env.WEBHOOK_SECRET as string;
+    const resend = new Resend(secret);
 
     try {
         const { data, error } = await resend.emails.send({
