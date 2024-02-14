@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import crypto from 'crypto';
 
 
-if (!process.env.TWITCH_SECRET) {
+if (!process.env.TWITCH_CLIENT_SECRET) {
   console.error("The TWITCH_SECRET environment variable is not set.");
   process.exit(1); // Exit the process with an error code
 }
@@ -81,7 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 
 function getSecret(): string {
-  return process.env.TWITCH_SECRET || '';
+  return process.env.TWITCH_CLIENT_SECRET || '';
 }
 
 function getHmacMessage(headers: NodeJS.Dict<string | string[]>, body: string): string {
