@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import News from "@/components/News/News";
 import PartyHost from "@/components/PartyHost/PartyHost";
 import Stats from "@/components/Stats/Stats";
+import TwitchForm from "@/components/TwitchForm/TwitchForm";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import UpcomingDates from "@/components/UpcomingDates/UpcomingDates";
 import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
@@ -43,6 +44,7 @@ export default function Home() {
         <InTouch />
         <About />
         <Stats />
+        <TwitchForm />
         <PartyHost />
         <UpcomingDates />
         <TheTeam />
