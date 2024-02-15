@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import authHandler from "../getAppAccessTokenAuth/route";
 import userIdHandler from "../getTwitchUserId/route";
+import cloudSaveHandler from "../../ugs/cloudSave/route";
 
 
 async function getAccessToken() {
@@ -26,14 +27,53 @@ export async function GET() {
 
 export async function POST(req: any) {
   try {
+    const formResponse = {
+                          "status": 200, 
+                          "twitchUserId": "", 
+                        };
     // retrieve email from user request body
     const { first, last, email, twitchName } = await req.json();
     console.log(first, last, email, twitchName);
 
-    const appAccessToken = await getAccessToken() || '';
-    const userId = await userIdHandler(twitchName, appAccessToken);
+    const appAccessToken = await getAccessToken() as string;
+    const userId = await userIdHandler(twitchName, appAccessToken) as string;
 
-    return NextResponse.json({userId});
+    if (userId === "invalid") {
+      console.log("Web handler see userId is invalid")
+      formResponse['twitchUserId'] = "invalid";
+    } else {
+      formResponse['twitchUserId'] = userId;
+
+      const securityToken = "Auth777!";
+      const username = twitchName;
+      const password = userId + securityToken;
+
+      const ugsResponse = await ugsSignUpHandler(username, password) as object;
+      console.log("About to make custom check: \n");
+      if (hasOwnPropertyCustom(ugsResponse, "userId") && hasOwnPropertyCustom(ugsResponse, "idToken")) {
+        console.log("custom check worked!");
+        console.log("Ready to start Cloud Save");
+        const playerId = ugsResponse["userId"] as string;
+        const idToken = ugsResponse["idToken"] as string;
+
+        const params = {
+          firstName: first,
+          lastName: last,
+          email: email,
+          userId: userId,
+          twitchName: twitchName,
+        }
+        console.log("Done with UGS signup call");
+        const cloudSaveResponse = await cloudSaveHandler(params, playerId, idToken);
+        console.log(cloudSaveResponse);
+        console.log("Finished with cloud save");
+      } else {
+        // signup not successful, Twitch name already registered
+        formResponse["status"] = 409
+      }
+    }
+
+    return NextResponse.json({formResponse});
 
   } catch (err) {
     console.log(err);
@@ -70,6 +110,35 @@ function  eventSubRequestOnline(userId: string): string {
 
 
 
+async function ugsSignUpHandler(username: string, password: string) {
+  try {
+    const response = await fetch('http://localhost:3000/api/ugs/signup', {
+      method: "GET",
+      headers: {
+        "username": username,
+        "password": password,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to sign up: ${response.statusText}`);
+    }
+    console.log(response.status);
+
+    const responseData = await response.json();
+    
+    return NextResponse.json(responseData);
+
+  } catch (error) {
+
+    console.error(error);
+    return;
+  }
+}
+
+
+
+
 function getSecret(): string {
   return process.env.TWITCH_SECRET || '';
 }
@@ -84,4 +153,9 @@ function getHmac(secret: string, message: string): string {
 
 function verifyMessage(hmac: string, verifySignature: string): boolean {
   return crypto.timingSafeEqual(Buffer.from(hmac), Buffer.from(verifySignature));
+}
+
+function hasOwnPropertyCustom<X extends {}, Y extends PropertyKey>
+  (obj: X, prop: Y): obj is X & Record<Y, unknown> {
+  return obj.hasOwnProperty(prop)
 }
