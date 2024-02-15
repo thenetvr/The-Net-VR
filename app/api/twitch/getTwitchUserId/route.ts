@@ -6,7 +6,7 @@ import authHandler from "../getAppAccessTokenAuth/route";
 // -H 'Authorization: Bearer cfabdegwdoklmawdzdo98xt2fo512y' \
 // -H 'Client-Id: uo6dggojyb8d6soh92zknwmi5ej1q2'
 
-const CLIENT_ID = process.env.TWITCH_CLIENT_SECRET || '';
+const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
 const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
 
 
