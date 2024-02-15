@@ -26,7 +26,7 @@ export default function ContactUs() {
     }
   );
 
-  const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormSubmit = async (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     const { first, last, email, phone, message } = state;
     setErrorMessage("");

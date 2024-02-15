@@ -24,7 +24,7 @@ export default function ContactUs() {
     }
   );
 
-  const handleFormSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormSubmit = async (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     const { first, last, twitchId } = state;
     setErrorMessage("");
@@ -65,13 +65,15 @@ export default function ContactUs() {
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="text-start">
-            We know community is the heart of a successful streaming channel. Stand out from the crowd and give your followers a unique interactive way to watch your stream and build connections with other followers.
-          </p>
-          <p>_______________________</p>
-          <p className="text-start">
-            Use your Twitch ID to sign up with our service so that any time you go online, we create a virtual theater for your watchers to join!
-          </p>
+          <div>
+            <p className="text-start">
+              We know community is the heart of a successful streaming channel. Stand out from the crowd and give your followers a unique interactive way to watch your stream and build connections with other followers.
+            </p>
+            <p>_______________________</p>
+            <p className="text-start">
+              Use your Twitch ID to sign up with our service so that any time you go online, we create a virtual theater for your watchers to join!
+            </p>
+          </div>
         </Reveal>
       </div>
       <form className="w-full flex flex-wrap md:w-2/3">
