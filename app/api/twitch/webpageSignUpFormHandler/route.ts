@@ -32,9 +32,6 @@ export async function POST(req: any) {
 
     const appAccessToken = await getAccessToken() || '';
     const userId = await userIdHandler(twitchName, appAccessToken);
-    console.log('User Id Processing: ' + userId);
-
-
 
     return NextResponse.json({userId});
 
