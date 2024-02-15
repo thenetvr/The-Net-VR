@@ -48,11 +48,10 @@ export async function POST(req: any) {
       const username = twitchName;
       const password = userId + securityToken;
 
-      const ugsResponse = await ugsSignUpHandler(username, password) as object;
-      console.log("About to make custom check: \n");
-      if (hasOwnPropertyCustom(ugsResponse, "userId") && hasOwnPropertyCustom(ugsResponse, "idToken")) {
-        console.log("custom check worked!");
-        console.log("Ready to start Cloud Save");
+      const ugsResponse = await ugsSignUpHandler(username, password) || {};
+
+      if (hasOwnPropertyCustom(ugsResponse, 'userId') && hasOwnPropertyCustom(ugsResponse, 'idToken')) {
+
         const playerId = ugsResponse["userId"] as string;
         const idToken = ugsResponse["idToken"] as string;
 
@@ -63,10 +62,11 @@ export async function POST(req: any) {
           userId: userId,
           twitchName: twitchName,
         }
-        console.log("Done with UGS signup call");
+
         const cloudSaveResponse = await cloudSaveHandler(params, playerId, idToken);
-        console.log(cloudSaveResponse);
-        console.log("Finished with cloud save");
+        if (cloudSaveResponse?.status != 200) {
+          formResponse["status"] = 400
+        }
       } else {
         // signup not successful, Twitch name already registered
         formResponse["status"] = 409
@@ -123,11 +123,9 @@ async function ugsSignUpHandler(username: string, password: string) {
     if (!response.ok) {
       throw new Error(`Failed to sign up: ${response.statusText}`);
     }
-    console.log(response.status);
 
     const responseData = await response.json();
-    
-    return NextResponse.json(responseData);
+    return responseData;
 
   } catch (error) {
 
@@ -157,5 +155,5 @@ function verifyMessage(hmac: string, verifySignature: string): boolean {
 
 function hasOwnPropertyCustom<X extends {}, Y extends PropertyKey>
   (obj: X, prop: Y): obj is X & Record<Y, unknown> {
-  return obj.hasOwnProperty(prop)
+  return obj.hasOwnProperty(prop);
 }
