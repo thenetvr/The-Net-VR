@@ -45,10 +45,14 @@ export default function TwitchSignUp() {
           twitchName,
         }),
       });
-      const result = await res.json();
-      console.log(result);
-      if (result['userId'] === 'invalid'){
+      const response = await res.json();
+      const result = response["formResponse"];
+      const twitchUserId = result["twitchUserId"];
+
+      if (result['twitchUserId'] === "invalid"){
         setErrorMessage(`Invalid Twitch Name: No user associated with the name "${twitchName}"`);
+      } else if (result['status'] === 409) {
+        setErrorMessage("Looks like this Twitch name has already been registered with us.");
       } else {
         setErrorMessage("Success! Your Twitch Channel has been linked.");
       }
