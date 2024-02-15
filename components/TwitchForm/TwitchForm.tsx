@@ -34,7 +34,7 @@ export default function TwitchSignUp() {
       setErrorMessage("Please Make A Valid Entry For All Fields");
       return;
     }
-
+    setErrorMessage("Processing your request...");
     try {
       const res = await fetch(`/api/twitch/webpageSignUpFormHandler`, {
         method: "POST",
@@ -47,7 +47,11 @@ export default function TwitchSignUp() {
       });
       const result = await res.json();
       console.log(result);
-      setErrorMessage("Success! Your Twitch Channel has been linked.");
+      if (result['userId'] === 'invalid'){
+        setErrorMessage(`Invalid Twitch Name: No user associated with the name "${twitchName}"`);
+      } else {
+        setErrorMessage("Success! Your Twitch Channel has been linked.");
+      }
     } catch (e) {
       console.log(e);
       setErrorMessage("Something Went Wrong. Please Try Again Later.");
