@@ -36,7 +36,7 @@ export default function ContactUs() {
     }
 
     try {
-      const res = await fetch(`/api/twitch-sign-up`, {
+      const res = await fetch(`/api/twitch/webpageSignUpFormHandler`, {
         method: "POST",
         body: JSON.stringify({
           first,
