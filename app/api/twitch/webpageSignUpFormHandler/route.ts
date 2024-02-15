@@ -1,9 +1,24 @@
 import { NextResponse } from "next/server";
 import type { NextApiRequest, NextApiResponse } from 'next';
 import crypto from "crypto";
+import authHandler from "../getAppAccessTokenAuth/route";
+import userIdHandler from "../getTwitchUserId/route";
 // import { Resend } from "resend";
 
 // const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
+async function getAccessToken() {
+  try {
+    const accessToken = await authHandler();
+    console.log('Access Token:', accessToken);
+    // You can now use the access token for further API calls within this block
+    return accessToken;
+  } catch (error) {
+    console.error('Failed to get the access token:', error);
+    throw new Error('Failed to fetch Twitch app access token:');
+  }
+}
+
 
 export async function GET() {
   return NextResponse.json({
@@ -17,7 +32,12 @@ export async function POST(req: any) {
     // retrieve email from user request body
     const { first, last, twitchId } = await req.json();
     console.log(first, last, twitchId);
-    return NextResponse.json({twitchId});
+
+    const appAccessToken = await getAccessToken() || '';
+    const userId = userIdHandler(appAccessToken);
+    console.log(userId);
+
+    return NextResponse.json({userId});
 
   } catch (err) {
     console.log(err);
