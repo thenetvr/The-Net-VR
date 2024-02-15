@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
-import type { NextApiRequest, NextApiResponse } from 'next';
 import crypto from "crypto";
 import authHandler from "../getAppAccessTokenAuth/route";
 import userIdHandler from "../getTwitchUserId/route";
-// import { Resend } from "resend";
 
-// const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 async function getAccessToken() {
   try {
@@ -23,7 +20,7 @@ async function getAccessToken() {
 export async function GET() {
   return NextResponse.json({
     contact:
-      "this is data from 'twitch-sign-up' route. Make a POST Request to send your message",
+      "this is data from 'twitch-sign-up TEST' route. Make a POST Request to send your message",
   });
 }
 
@@ -34,8 +31,8 @@ export async function POST(req: any) {
     console.log(first, last, twitchId);
 
     const appAccessToken = await getAccessToken() || '';
-    const userId = userIdHandler(appAccessToken);
-    console.log(userId);
+    const userId = await userIdHandler(twitchId, appAccessToken);
+    console.log('User Id Processing: ' + userId);
 
     return NextResponse.json({userId});
 
