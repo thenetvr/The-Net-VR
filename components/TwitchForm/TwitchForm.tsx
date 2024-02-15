@@ -53,6 +53,8 @@ export default function TwitchSignUp() {
         setErrorMessage(`Invalid Twitch Name: No user associated with the name "${twitchName}"`);
       } else if (result['status'] === 409) {
         setErrorMessage("Looks like this Twitch name has already been registered with us.");
+      } else if (result["status"] === 400) {
+        setErrorMessage("Something went wrong saving your data.");
       } else {
         setErrorMessage("Success! Your Twitch Channel has been linked.");
       }
