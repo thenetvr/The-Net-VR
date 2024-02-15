@@ -27,12 +27,14 @@ export async function GET() {
 export async function POST(req: any) {
   try {
     // retrieve email from user request body
-    const { first, last, twitchId } = await req.json();
-    console.log(first, last, twitchId);
+    const { first, last, email, twitchName } = await req.json();
+    console.log(first, last, email, twitchName);
 
     const appAccessToken = await getAccessToken() || '';
-    const userId = await userIdHandler(twitchId, appAccessToken);
+    const userId = await userIdHandler(twitchName, appAccessToken);
     console.log('User Id Processing: ' + userId);
+
+
 
     return NextResponse.json({userId});
 
@@ -42,7 +44,7 @@ export async function POST(req: any) {
   }
 }
 
-function  eventSubRequestOnline(twitchId: string): string {
+function  eventSubRequestOnline(userId: string): string {
 /*
   curl -X POST 'https://api.twitch.tv/helix/eventsub/subscriptions' \
 -H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
@@ -54,7 +56,7 @@ function  eventSubRequestOnline(twitchId: string): string {
       "type": "stream.online",
       "version": "1",
       "condition": {
-          "broadcaster_user_id": twitchId
+          "broadcaster_user_id": userId
       },
       "transport": {
           "method": "webhook",
