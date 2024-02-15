@@ -22,7 +22,7 @@ export default async function userIdHandler(loginName: string, appAccessToken: s
 
     const userList = responseData["data"];
 
-    let userId = 'invalid';
+    let userId = "invalid";
 
     if (userList.length > 0) {
         userId = userList[0]['id'];
