@@ -20,41 +20,33 @@ export default function ContactUs() {
     {
       first: "",
       last: "",
-      email: "",
-      phone: "",
-      message: "",
+      twitchId: "",
     }
   );
 
   const handleFormSubmit = async (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const { first, last, email, phone, message } = state;
+    const { first, last, twitchId } = state;
     setErrorMessage("");
 
     // error handling
-    if (!first || !last || !email || !phone || !message) {
+    if (!first || !last || !twitchId) {
       setErrorMessage("Please Make A Valid Entry For All Fields");
-      return;
-    }
-    if (!isValidEmail(email)) {
-      setErrorMessage("Please Enter A Valid Email");
       return;
     }
 
     try {
-      const res = await fetch(`/api/contact`, {
+      const res = await fetch(`/api/twitch/webpageSignUpFormHandler`, {
         method: "POST",
         body: JSON.stringify({
           first,
           last,
-          email,
-          phone,
-          message,
+          twitchId,
         }),
       });
       const result = await res.json();
       console.log(result);
-      setErrorMessage("Your Message Was Sent Successfully!");
+      setErrorMessage("Success! Your Twitch Channel has been linked.");
     } catch (e) {
       console.log(e);
       setErrorMessage("Something Went Wrong. Please Try Again Later.");
@@ -69,26 +61,18 @@ export default function ContactUs() {
       <div className="w-full md:w-1/3">
         <Reveal delay={0}>
           <h1 className="text-4xl font-bold py-10 lg:text-left text-center">
-            Contact Us
+            Twitch Streamer? 
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="text-start">
-            Fill out the form to attend the most anticipated events in the city
-            and get your tickets for the best night party today for you and your
-            friends.
-          </p>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <div className="address flex flex-col gap-4 py-4 text-cyan-300 md:text-left text-center">
-            <p>169 Water Street, New York, 11226 United States.</p>
-            <p>+1 212 425 8617</p>
-            <p>office@nightlife.com</p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.6}>
-          <div className="py-5 flex md:justify-start justify-center">
-            <Socials />
+          <div>
+            <p className="text-start">
+              We know community is the heart of a successful streaming channel. Stand out from the crowd and give your followers a unique interactive way to watch your stream and build connections with other followers.
+            </p>
+            <p>_______________________</p>
+            <p className="text-start">
+              Use your Twitch ID to sign up with our service so that any time you go online, we create a virtual theater for your watchers to join!
+            </p>
           </div>
         </Reveal>
       </div>
@@ -121,44 +105,17 @@ export default function ContactUs() {
             />
           </Reveal>
         </div>
-        <div className="p-4 md:w-1/2 w-full">
-          <Reveal delay={0.4}>
-            <Input
-              size="lg"
-              isRequired
-              variant="underlined"
-              type="email"
-              label="Email"
-              placeholder="Enter Your Email"
-              value={state.email}
-              onChange={(e) => dispatch({ email: e.target.value })}
-            />
-          </Reveal>
-        </div>
-        <div className="p-4 md:w-1/2 w-full">
-          <Reveal delay={0.6}>
-            <Input
-              size="lg"
-              isRequired
-              variant="underlined"
-              type="number"
-              label="Phone Number"
-              placeholder="Enter Your Phone Number"
-              value={state.phone}
-              onChange={(e) => dispatch({ phone: e.target.value })}
-            />
-          </Reveal>
-        </div>
+        
         <div className="p-4 w-full">
           <Reveal delay={0.8}>
             <Textarea
               key="underlined"
               isRequired
               variant="underlined"
-              label="Description"
-              placeholder="What Would You Like To Tell Us?"
-              value={state.message}
-              onChange={(e) => dispatch({ message: e.target.value })}
+              label="Twitch ID"
+              placeholder="Enter your Twitch ID"
+              value={state.twitchId}
+              onChange={(e) => dispatch({ twitchId: e.target.value })}
               size="lg"
             />
           </Reveal>
