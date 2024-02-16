@@ -13,12 +13,18 @@ import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./globals.css";
 import Background from "@/components/Background/Background";
 import SecondBG from "@/components/SecondBG/SecondBG";
+import Carousel from "@/components/Carousel/Carousel";
+import CarouselDisplay from "@/components/Carousel/CarouselDisplay";
+import Welcome from "./Welcome/Welcome";
+
 
 export default function Home() {
+
   return (
     <main>
       <Navbar />
       <div className="main-content">
+
         <Hero />
         <InTouch />
         <Stats />
@@ -28,8 +34,11 @@ export default function Home() {
         <MiniGalary />
         <Testimonials />
         <News />
+        <Welcome />
         <ContactUs />
+
         <Footer />
+
       </div>
       <Background />
       <SecondBG />
