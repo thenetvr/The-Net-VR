@@ -13,6 +13,10 @@ import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
 import "./globals.css";
 import Background from "@/components/Background/Background";
 import SecondBG from "@/components/SecondBG/SecondBG";
+import Carousel from "@/components/Carousel/Carousel";
+import CarouselDisplay from "@/components/Carousel/CarouselDisplay";
+import Welcome from "./Welcome/Welcome";
+
 import { Metadata } from "next";
 import TheTeam from "@/components/TheTeam/TheTeam";
 import About from "@/components/About/About";
@@ -35,10 +39,12 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
   return (
     <main>
       <Navbar />
       <div className="main-content">
+
         <Hero />
         <InTouch />
         <About />
@@ -50,8 +56,11 @@ export default function Home() {
         <MiniGalary />
         <Testimonials />
         <News />
+        <Welcome />
         <ContactUs />
+
         <Footer />
+
       </div>
       {/* <Background /> */}
       <SecondBG />
