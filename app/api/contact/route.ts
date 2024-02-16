@@ -1,5 +1,6 @@
 import { EmailTemplate } from "@/components/Email/Email";
 import { NextResponse } from "next/server";
+/*
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
@@ -31,3 +32,4 @@ export async function POST(req: any) {
     return NextResponse.json({ error: err });
   }
 }
+*/
