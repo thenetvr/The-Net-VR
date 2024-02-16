@@ -23,5 +23,5 @@ git clone
 You can run the application with the following command:
 
 ```shell
-npm run start
+npm run dev
 ```

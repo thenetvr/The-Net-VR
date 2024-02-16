@@ -2,15 +2,32 @@
 
 import Reveal from "../shared/Reveal";
 
-
 export default function News() {
-
   // Proably can make this into prop so can call it from somewhere else
   const news = [
-    { id: 1, nameCard: 'Disrupt Magazine (Tech + Startups)', image: 'http://3.143.19.230/assets/Disrupt_Magazine-b706d534.png', date: 'May 16, 2022', body: 'DKyle Doran and The Net VR Creates a Unique and Innovative Experience for Livestreamers and Viewers' },
-    { id: 2, nameCard: 'Free Apps For Me', image: 'http://3.143.19.230/assets/Home-Theater1-1698e2af.png', date: 'April 27, 2022', body: 'The Net VR Theater Game Review' },
-    { id: 3, nameCard: 'A Gaming Moment (podcast)', image: 'http://3.143.19.230/assets/Home-Theater2-2a0a8d71.png', date: 'February 11, 2022', body: 'S3E4: What is VR With Kyle Doran CEO of The Net VR' },
-  ]
+    {
+      id: 1,
+      nameCard: "Disrupt Magazine (Tech + Startups)",
+      image: "/images/news/news-1.png",
+      date: "May 16, 2022",
+      body: "Kyle Doran and The Net VR Creates a Unique and Innovative Experience for Livestreamers and Viewers",
+    },
+    {
+      id: 2,
+      nameCard: "Free Apps For Me",
+      image: "/images/news/news-2.png",
+      date: "April 27, 2022",
+      body: "The Net VR Theater Game Review",
+    },
+    {
+      id: 3,
+      nameCard: "A Gaming Moment (podcast)",
+      image: "/images/news/news-3.png",
+      date: "February 11, 2022",
+      body: "S3E4: What is VR With Kyle Doran CEO of The Net VR",
+    },
+  ];
+
   return (
     <div className="flex flex-col py-4 md:py-16 gap-6 px-10 lg:px-20 xl:px-72">
       <div className="grid grid-cols-5 gap-4">
@@ -31,23 +48,14 @@ export default function News() {
       <div className="grid xl:grid-cols-3 gap-20 p-5 sm:grid-cols-2 grid-cols-1">
         {news.map((card, idx) => (
           <div key={idx}>
-            <Reveal delay={0.4 + (card.id) / 5}>
+            <Reveal delay={0.4 + card.id / 5}>
               <div>
                 <div className="flex justify-center">
-                  <img
-                    style={{ width: "500px", height: "400px" }}
-                    src={card.image}
-                    alt="test"
-
-                  />
+                  <img src={card.image} className="h-60 sm:h-72" alt="news" />
                 </div>
                 <div className="flex flex-col gap-4 py-4">
-                  <h1 className="font-bold text-2xl">
-                    {card.nameCard}
-                  </h1>
-                  <p>
-                    {card.body}
-                  </p>
+                  <h1 className="font-bold text-2xl">{card.nameCard}</h1>
+                  <p>{card.body}</p>
                   <p>{card.date}</p>
                 </div>
               </div>

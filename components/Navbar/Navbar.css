@@ -15,6 +15,10 @@
   z-index: 1000;
 }
 
+.mr-0:hover {
+  color: #0e9790;
+}
+
 .menu-icon {
   display: none;
 }
@@ -108,7 +112,7 @@
   width: 40px;
 }
 .burger:hover .strip div {
-  background: aqua;
+  color: aqua;
 }
 
 .burger-strip-5 div {
