@@ -30,8 +30,8 @@ export default function News() {
 
 
   return (
-      <div className={"bg-[#1E293B]"}>
-        <h1 className={"pt-4 ml-72 text-2xl font-bold mb-4"}>LATEST NEWS</h1>
+      <div className={"bg-[#1E293B] pt-4 pb-8"}>
+        <h1 className={"ml-72 text-2xl font-bold mb-4"}>LATEST NEWS</h1>
         <div className={"border-b-2 border-[#0284C7]"}></div>
         {news.map((section, key) => {
             return (
@@ -47,7 +47,7 @@ export default function News() {
                       <button
                           className={"flex border-1 border-[#0284C7] bg-[#1E293B] w-36 h-8 text-white rounded-2xl items-center justify-between"}>
                         <div className={"ml-4 text-sm whitespace-nowrap"}>Read More</div>
-                        <Image className={"mr-3"} src={"/images/arrowImage.png"} width={15} height={15}
+                        <Image className={"mr-3"} src={"/images/blueArrowImage.png"} width={15} height={15}
                                alt={"arrowImage"}/>
                       </button>
                     </div>
@@ -55,6 +55,11 @@ export default function News() {
                 </div>
             )
         })}
+        <button className={"flex border-1 border-[#0284C7] bg-[#0284C7] mx-auto mt-8 w-36 h-8 text-white rounded-2xl items-center justify-between"}>
+          <div className={"ml-4 text-sm whitespace-nowrap"}>View More</div>
+          <Image className={"mr-3 bg-black rounded-lg"} src={"/images/blackArrowImage.png"} width={15} height={15}
+                 alt={"arrowImage"}/>
+        </button>
       </div>
   );
 }
