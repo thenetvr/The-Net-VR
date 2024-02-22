@@ -1,68 +1,60 @@
 "use client";
 
 import Reveal from "../shared/Reveal";
-
+import Image from "next/image";
 export default function News() {
-  // Proably can make this into prop so can call it from somewhere else
+
   const news = [
     {
-      id: 1,
-      nameCard: "Disrupt Magazine (Tech + Startups)",
-      image: "/images/news/news-1.png",
-      date: "May 16, 2022",
-      body: "Kyle Doran and The Net VR Creates a Unique and Innovative Experience for Livestreamers and Viewers",
+      id:1,
+      image: "/images/newsImage1.png",
+      title: "Disrupt Magazine (Tech + Startups)",
+      content: "Kyle Doran and The Net vr Creates a unique and \n innovative experience from live streamers and viewers",
+      date: <div className={"inline-block"}>May, 16th<br/>2022</div>
     },
     {
-      id: 2,
-      nameCard: "Free Apps For Me",
-      image: "/images/news/news-2.png",
-      date: "April 27, 2022",
-      body: "The Net VR Theater Game Review",
+      id:2,
+      image: "/images/newsImage2.png",
+      title: "Free Apps For Me",
+      content: "The Net Vr Theater Game Reviews",
+      date: <div className={"inline-block"}>April, 27th<br/>2022</div>
     },
     {
-      id: 3,
-      nameCard: "A Gaming Moment (podcast)",
-      image: "/images/news/news-3.png",
-      date: "February 11, 2022",
-      body: "S3E4: What is VR With Kyle Doran CEO of The Net VR",
-    },
-  ];
+      id:3,
+      image: "/images/newsImage3.png",
+      title: "A Gaming Moment (podcast)",
+      content: "S3:E4 What is VR with Kyle Doran CEO of the Net Vr",
+      date: <div className={"inline-block"}>February, 11th<br/>2022</div>
+    }
+  ]
+
 
   return (
-    <div className="flex flex-col py-4 md:py-16 gap-6 px-10 lg:px-20 xl:px-72">
-      <div className="grid grid-cols-5 gap-4">
-        <div className="sm:col-span-4 col-span-6">
-          <Reveal delay={0.2}>
-            <p className="px-6 uppercase text-xl">Blog</p>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <h1 className="p-6 text-4xl font-bold">Read The Latest News</h1>
-          </Reveal>
-        </div>
-        <div className="flex items-end sm:col-end-7">
-          <Reveal delay={0.4}>
-            <p className="p-6 underline">All News</p>
-          </Reveal>
-        </div>
-      </div>
-      <div className="grid xl:grid-cols-3 gap-20 p-5 sm:grid-cols-2 grid-cols-1">
-        {news.map((card, idx) => (
-          <div key={idx}>
-            <Reveal delay={0.4 + card.id / 5}>
-              <div>
-                <div className="flex justify-center">
-                  <img src={card.image} className="h-60 sm:h-72" alt="news" />
+      <div className={"bg-[#1E293B]"}>
+        <h1 className={"pt-4 ml-72 text-2xl font-bold mb-4"}>LATEST NEWS</h1>
+        <div className={"border-b-2 border-[#0284C7]"}></div>
+        {news.map((section, key) => {
+            return (
+                <div className={"flex border-b-2 border-[#0284C7]"}>
+                  <div className={"mr-20 mb-6 mt-6 ml-72"}>
+                    <Image src={section.image} alt={"newsImage"} width={275} height={120}/>
+                  </div>
+                  <div className={"w-[55%]"}>
+                    <h3 className={"text-xl mt-6 font-bold"}>{section.title}</h3>
+                    <p className={"mt-4"}>{section.content}</p>
+                    <div className={"flex items-end justify-between h-[52%]"}>
+                      {section.date}
+                      <button
+                          className={"flex border-1 border-[#0284C7] bg-[#1E293B] w-36 h-8 text-white rounded-2xl items-center justify-between"}>
+                        <div className={"ml-4 text-sm whitespace-nowrap"}>Read More</div>
+                        <Image className={"mr-3"} src={"/images/arrowImage.png"} width={15} height={15}
+                               alt={"arrowImage"}/>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-4 py-4">
-                  <h1 className="font-bold text-2xl">{card.nameCard}</h1>
-                  <p>{card.body}</p>
-                  <p>{card.date}</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        ))}
+            )
+        })}
       </div>
-    </div>
   );
 }
