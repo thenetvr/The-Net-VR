@@ -8,12 +8,12 @@
   height: 100%;
 }
 
-.navbar {
+/* .navbar {
   height: 60px;
   position: fixed;
   width: 100%;
   z-index: 1000;
-}
+} */
 
 .mr-0:hover {
   color: #0e9790;
@@ -41,15 +41,7 @@
   position: relative;
 }
 
-.nav-elements ul a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #574c4c;
-}
+.nav-elements ul a.active::after {}
 
 @media (max-width: 768px) {
   .nav-elements ul li:not(:last-child) {
@@ -103,6 +95,7 @@
   align-items: center;
   transition: all 0.5s ease;
 }
+
 .strip div {
   height: 3px;
   border-radius: 2px;
@@ -111,6 +104,7 @@
   transition: all 0.55s cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 40px;
 }
+
 .burger:hover .strip div {
   color: aqua;
 }
@@ -118,16 +112,107 @@
 .burger-strip-5 div {
   transition: all 0.65s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .burger-active .burger-strip-5 div:first-child {
   transform: translateY(13px) rotate(0deg);
 }
+
 .burger-active .burger-strip-5 div:nth-child(2) {
   opacity: 0;
 }
+
 .burger-active .burger-strip-5 div:last-child {
   transform: translateY(-13px) rotate(90deg);
 }
+
 .burger-active .burger-strip-5 {
   transform: scale(0.7) rotate(45deg);
   transition: all 0.25s ease 0.05s;
+}
+
+
+/* new css stuff for updated Navbar */
+
+/* Navigation Bar */
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+
+  position: absolute;
+  width: 1000px;
+  height: 72px;
+  left: calc(50% - 1000px/2);
+  top: 15px;
+
+  background: #2F4D65;
+  border: 1px solid #0CACFF;
+  box-shadow: 6px 8px 2.3px rgba(32, 49, 75, .58);
+  border-radius: 45px;
+
+}
+
+.border-layout {
+  /* Frame 9 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 24px;
+
+  width: 794px;
+  height: 56px;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+
+}
+
+.rectangle {
+  /* Rectangle 2 */
+
+  width: 65px;
+  height: 8px;
+
+  border-radius: 4px 3px 0px 0px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+}
+
+.contact {
+  /* Contact Us */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 23px;
+  gap: 8px;
+
+  width: 100px;
+  height: 50px;
+
+  background: #0284C7;
+  border-radius: 37px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
