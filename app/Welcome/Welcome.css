@@ -108,7 +108,7 @@
     position: relative;
     width: 578px;
     height: 261px;
-    left: -280px;
+    left: -240px;
     top: 50px;
 
 }
@@ -143,6 +143,7 @@
     font-weight: 500;
     font-size: 24px;
     line-height: 31px;
+    left: -230000;
     /* identical to box height, or 130% */
     text-align: center;
 
@@ -213,19 +214,5 @@
     border: 2px solid #FFFFFF;
 
 
-
-}
-
-@media screen and (max-width: 900px) {
-    .enviornment1 {
-        width: 50%
-    }
-
-}
-
-@media screen and (max-width: 900px) {
-    .enviornment2 {
-        width: 50%
-    }
 
 }
