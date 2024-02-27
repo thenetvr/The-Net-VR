@@ -24,3 +24,10 @@
     }
   }
 }
+
+.link-text {
+  color: white;
+}
+.link-text:hover {
+  color: lightskyblue;
+}
