@@ -24,9 +24,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar bg-slate-900 transition-all ${
-        scrollPosition > 200 ? "bg-opacity-100" : "bg-opacity-30"
-      }`}
+      className={`navigation bg-slate-900 transition-all ${scrollPosition > 200 ? "bg-opacity-100" : "bg-opacity-30"
+        }`}
     >
       <div className="container">
         <div className="logo rounded-xl">
@@ -82,7 +81,7 @@ export default function Navbar() {
                 Upcoming Events
               </Link>
             </li>
-            <li className="mr-0 transition-all">
+            <li className="contact mr-1 transition-all">
               <Link
                 href="#contact"
                 className={hash == "contact" ? "text-teal-300" : ""}

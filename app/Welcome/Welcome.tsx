@@ -18,15 +18,15 @@ const welcome = () => {
             </div>
             <div className='enviornment2'>
                 <h1 className='heading2'>IMMERSIVE 3D ENVIRONMENTS</h1>
-                <p className='info2 w-full  md:text-3xl text-md'>
+                <p className='info2 w-full md:text-3xl text-md'>
                     Experience the next level of entertainment with out
                     cutting-edge 3D environment design specifically for
                     Twitch streamers. Engage your audience like never before
                     and create a truly immersive streaming experience
                 </p>
             </div>
-            <div className=''>
-                <button className="buttonlable" >More About Us</button>
+            <div className='flex flex-col justify-start'>
+                <button className="buttonlable " >More About Us</button>
             </div>
         </div>
     )
