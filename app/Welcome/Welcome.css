@@ -1,0 +1,218 @@
+.heading1 {
+
+    /* Welcome to the Net VR*/
+    width: 578px;
+    height: 57px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 57px;
+
+
+    /* identical to box height, or 119%*/
+    text-transform: uppercase;
+
+    color: #068FD8;
+
+    /* Inside auto layout*/
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.heading2 {
+
+    /* Welcome to the Net VR*/
+    width: 578px;
+    height: 57px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 57px;
+
+    /* identical to box height, or 119%*/
+    text-transform: uppercase;
+
+    color: #068FD8;
+
+    /* Inside auto layout*/
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+
+}
+
+.info1 {
+    /* Experience twitch like never before with The Net Vr. We provide streamers with stunning 3D environments that will captivate and engage their audience. Elevate your streams to the next level and stand out from the crowd */
+    width: 550px;
+    height: 180px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 36px;
+
+    /* or 150% */
+
+    color: rgba(255, 255, 255, 0.85);
+
+    /* Inside auto layout*/
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+}
+
+.info2 {
+    /* Experience the next level of entertainment with out cutting-edge 3D environment design specifically for Twitch streamers. Engage your audience like never before and create a truly immersive streaming experience */
+
+    width: 550px;
+    height: 180px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 36px;
+
+    /* or 150% */
+
+    color: rgba(255, 255, 255, 0.86);
+
+
+    /* Inside auto layout */
+
+
+}
+
+.enviornment1 {
+    /* Welcome to the net vr */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 24px;
+
+    position: relative;
+    width: 578px;
+    height: 261px;
+    left: -240px;
+    top: 50px;
+
+}
+
+.enviornment2 {
+    /* Immersive 3d envrionment */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+
+    position: relative;
+    width: 706px;
+    height: 300px;
+    left: 230px;
+    top: 0px;
+
+}
+
+.buttonlable {
+    /* More About us */
+
+    width: 160px;
+    height: 32px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    left: -230000;
+    /* identical to box height, or 130% */
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+
+
+}
+
+.buttonlayout {
+    /* Frame 23 */
+
+    width: 28px;
+    height: 28px;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+
+    /* Ellipse 2 */
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #000000;
+
+
+    /* arrow-right */
+
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 2px;
+    top: 2px;
+
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 20.83%;
+    right: 20.83%;
+    top: 50%;
+    bottom: 50%;
+
+    border: 2px solid #FFFFFF;
+
+
+    /* Vector */
+
+    position: absolute;
+    left: 50%;
+    right: 20.83%;
+    top: 20.83%;
+    bottom: 20.83%;
+
+    border: 2px solid #FFFFFF;
+
+
+
+}
