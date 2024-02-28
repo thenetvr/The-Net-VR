@@ -1,14 +1,15 @@
+import { NextResponse } from "next/server";
+
 type TwitchTokenResponse = {
   access_token: string;
   expires_in: number;
   token_type: string;
 };
 
-const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
-const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
-
-export default async function authHandler() {
+export async function POST(req: any) {
   try {
+    const { clientId, clientSecret } = await req.json();
+
     const response = await fetch('https://id.twitch.tv/oauth2/token', {
       method: 'POST',
       headers: {
@@ -17,9 +18,9 @@ export default async function authHandler() {
 
       // Use URLSearchParams to encode the body with x-www-form-urlencoded format
       body: new URLSearchParams({
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
-        grant_type: 'client_credentials',
+        client_id: clientId,
+        client_secret: clientSecret,
+        grant_type: "client_credentials",
       }),
     });
 
@@ -28,13 +29,13 @@ export default async function authHandler() {
     }
 
     const data: TwitchTokenResponse = await response.json();
-    
-    return data["access_token"];
+
+    return NextResponse.json(data);
 
   } catch (error) {
 
     console.error(error);
-    return;
+    return NextResponse.json({ error: error });
   }
 }
 
