@@ -1,21 +1,11 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import authHandler from "../getAppAccessTokenAuth/route";
 import userIdHandler from "../getTwitchUserId/route";
 import cloudSaveHandler from "../../ugs/cloudSave/route";
 
 
-async function getAccessToken() {
-  try {
-    const accessToken = await authHandler();
-    console.log('Access Token:', accessToken);
-    // You can now use the access token for further API calls within this block
-    return accessToken;
-  } catch (error) {
-    console.error('Failed to get the access token:', error);
-    throw new Error('Failed to fetch Twitch app access token:');
-  }
-}
+const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
+const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
 
 
 export async function GET() {
@@ -80,6 +70,38 @@ export async function POST(req: any) {
     return NextResponse.json({ error: err });
   }
 }
+
+
+async function getAccessToken() {
+  try {
+    const response = await fetch('http://localhost:3000/api/twitch/getAppAccessTokenAuth', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+      }),
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Failed to sign up: ${response.statusText}`);
+    }
+  
+    const responseData = await response.json();
+
+    const accessToken = responseData["access_token"]
+    console.log('Access Token:', accessToken);
+
+    return accessToken;
+
+  } catch (error) {
+    console.error('Failed to get the access token:', error);
+    throw new Error('Failed to fetch Twitch app access token:');
+  }
+}
+
 
 function  eventSubRequestOnline(userId: string): string {
 /*
