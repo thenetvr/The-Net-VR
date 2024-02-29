@@ -101,7 +101,7 @@ async function getAccessToken() {
   }
 }
 
-async function getUserId(twitchName: string, appAccessToken: string, clientId: string) {
+async function getUserId(loginName: string, appAccessToken: string, clientId: string) {
   try {
     const response = await fetch('http://localhost:3000/api/twitch/getTwitchUserId', {
       method: "POST",
@@ -109,9 +109,9 @@ async function getUserId(twitchName: string, appAccessToken: string, clientId: s
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        twitchName: twitchName,
+        loginName: loginName,
         appAccessToken: appAccessToken,
-        clientId: CLIENT_ID,
+        clientId: clientId,
       }),
     });
   
