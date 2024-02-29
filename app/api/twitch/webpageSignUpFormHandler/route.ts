@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import cloudSaveHandler from "../../ugs/cloudSave/route";
 
 
 const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
 const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
-
+const PROJECT_ID = process.env.PROJECT_ID || '';
 
 export async function GET() {
   return NextResponse.json({
@@ -52,7 +51,7 @@ export async function POST(req: any) {
           twitchName: twitchName,
         }
 
-        const cloudSaveResponse = await cloudSaveHandler(params, playerId, idToken);
+        const cloudSaveResponse = await savePlayerData(params, idToken, playerId, PROJECT_ID);
         if (cloudSaveResponse?.status != 200) {
           formResponse["status"] = 400
         }
@@ -132,33 +131,36 @@ async function getUserId(loginName: string, appAccessToken: string, clientId: st
   }
 }
 
-function  eventSubRequestOnline(userId: string): string {
-/*
-  curl -X POST 'https://api.twitch.tv/helix/eventsub/subscriptions' \
--H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
--H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz' \
--H 'Content-Type: application/json' 
-*/
-
-  let requestBody = { 
-      "type": "stream.online",
-      "version": "1",
-      "condition": {
-          "broadcaster_user_id": userId
+async function savePlayerData(params: object, idToken: string, playerId: string, projectId: string) {
+  try {
+    const response = await fetch('http://localhost:3000/api/ugs/cloudSave', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
       },
-      "transport": {
-          "method": "webhook",
-          "callback": "https://example.com/webhooks/callback",
-          "secret": process.env.TWITCH_SECRET || ''
-      }
+      body: JSON.stringify({
+        params: params,
+        idToken: idToken,
+        playerId: playerId,
+        projectId: projectId
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to save player data with Cloud Save: ${response.statusText}`);
+    }
+  
+    const responseData = await response.json();
+
+    console.log('Cloud Save Response: ', responseData);
+
+    return responseData;
+
+  } catch (error) {
+    console.error('Failed to save player data with Cloud Save: ', error);
+    throw new Error('Failed to save player data with Cloud Save:');
   }
-
-
-  return '';
 }
-
-
-
 
 
 async function ugsSignUpHandler(username: string, password: string) {
@@ -208,3 +210,33 @@ function hasOwnPropertyCustom<X extends {}, Y extends PropertyKey>
   (obj: X, prop: Y): obj is X & Record<Y, unknown> {
   return obj.hasOwnProperty(prop);
 }
+
+
+
+
+// For webhook stuff
+function  eventSubRequestOnline(userId: string): string {
+  /*
+    curl -X POST 'https://api.twitch.tv/helix/eventsub/subscriptions' \
+  -H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
+  -H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz' \
+  -H 'Content-Type: application/json' 
+  */
+  
+    let requestBody = { 
+        "type": "stream.online",
+        "version": "1",
+        "condition": {
+            "broadcaster_user_id": userId
+        },
+        "transport": {
+            "method": "webhook",
+            "callback": "https://example.com/webhooks/callback",
+            "secret": process.env.TWITCH_SECRET || ''
+        }
+    }
+  
+  
+    return '';
+  }
+  
