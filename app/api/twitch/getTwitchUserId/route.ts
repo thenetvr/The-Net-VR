@@ -1,15 +1,13 @@
-const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
-const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
+import { NextResponse } from "next/server";
 
-
-export default async function userIdHandler(loginName: string, appAccessToken: string) {
+export async function POST(req:any) {
   try {
-
+    const {loginName, appAccessToken, clientId} = await req.json();
     const response = await fetch(`https://api.twitch.tv/helix/users?login=${loginName}`, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + appAccessToken,
-        'Client-Id': CLIENT_ID,
+        'Client-Id': clientId,
       },
     });
 
@@ -28,7 +26,7 @@ export default async function userIdHandler(loginName: string, appAccessToken: s
         userId = userList[0]['id'];
     }
 
-    return userId;
+    return NextResponse.json({"userId": userId});
 
   } catch (error) {
     console.error(error);
