@@ -9,9 +9,9 @@ export default function Footer() {
         <br></br>
         <br></br>
       </div>
-      <div className="grid grid-cols-10 gap-2">
-        <div style={{gridColumnStart: 2}} className="col-span-2">
-          <div style={{paddingLeft: "15%"}}>
+      <div className="flex-container">
+        <div className="flex-item-left">
+          <div >
           <Image
             key={"icon"}
             src={`/images/iconAndLogo.png`}
@@ -30,15 +30,15 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div style={{gridColumnStart: 8}}> 
+        <div className="flex-item"> 
           <div style={{fontSize: "1.2em"}}>
-            <p>
+            <h1 className="font-bold flex items-center gap-3">
               Navigation
-            </p>
+            </h1>
           </div>
           <p>
             <a
-              href=""
+              href="/"
               className="link-text"
             >
               Home
@@ -46,7 +46,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="#about"
               className="link-text"
             >
               About
@@ -54,7 +54,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="#team"
               className="link-text"
             >
               Team
@@ -62,7 +62,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="#news"
               className="link-text"
             >
               News
@@ -70,22 +70,22 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="#our-theaters"
               className="link-text"
             >
               NetVR Theater
             </a>
           </p>
         </div>
-        <div style={{gridColumnStart: 9}} className="col-span-2">
+        <div className="flex-item">
           <div style={{fontSize: "1.2em"}}>
-            <p>
+            <h1 className="font-bold flex items-center gap-3">
               Socials
-            </p>
+            </h1>
           </div>
           <p>
             <a
-              href=""
+              href="https://www.facebook.com/thenetvr"
               className="link-text"
             >
               Facebook
@@ -93,7 +93,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="https://www.instagram.com/thenetvr/"
               className="link-text"
             >
               Instagram
@@ -101,7 +101,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="https://twitter.com/thenetvr"
               className="link-text"
             >
               Twitter
@@ -109,7 +109,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="https://discord.com/invite/DpNy4Ur"
               className="link-text"
             >
               Discord
@@ -117,7 +117,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href=""
+              href="https://www.youtube.com/channel/UCWOD7IdEz0z6S-K3Sf6B86Q"
               className="link-text"
             >
               Youtube
@@ -132,13 +132,13 @@ export default function Footer() {
        <hr></hr>
         <br></br>
       </div>
-      <div className="grid grid-cols-10 gap-2">
-        <div style={{gridColumnStart: 2}} className="col-span-2">
+      <div className="flex-container">
+        <div className="flex-item-left">
           <p>
             ©2024 The Net VR
           </p>
         </div>
-        <div style={{gridColumnStart: 8}}> 
+        <div className="flex-item"> 
           <p>
             <a
               href=""
@@ -148,7 +148,7 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <div style={{gridColumnStart: 9}} className="col-span-2">
+        <div className="flex-item">
           <p>
             <a
               href=""
@@ -161,6 +161,5 @@ export default function Footer() {
       </div>
       <br></br>
     </div>
-    
   );
 }
