@@ -28,8 +28,7 @@ export async function POST(req: any) {
     return NextResponse.json(responseStatus);
 
   } catch (error) {
-
     console.error(error);
-    return;
+    return NextResponse.json({ error: error });
   }
 }
