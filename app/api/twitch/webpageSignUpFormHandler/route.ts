@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import userIdHandler from "../getTwitchUserId/route";
 import cloudSaveHandler from "../../ugs/cloudSave/route";
 
 
@@ -26,7 +25,7 @@ export async function POST(req: any) {
     console.log(first, last, email, twitchName);
 
     const appAccessToken = await getAccessToken() as string;
-    const userId = await userIdHandler(twitchName, appAccessToken) as string;
+    const userId = await getUserId(twitchName, appAccessToken, CLIENT_ID) as string;
 
     if (userId === "invalid") {
       console.log("Web handler see userId is invalid")
@@ -86,7 +85,7 @@ async function getAccessToken() {
     });
   
     if (!response.ok) {
-      throw new Error(`Failed to sign up: ${response.statusText}`);
+      throw new Error(`Failed to get Twitch Access Token: ${response.statusText}`);
     }
   
     const responseData = await response.json();
@@ -102,6 +101,36 @@ async function getAccessToken() {
   }
 }
 
+async function getUserId(twitchName: string, appAccessToken: string, clientId: string) {
+  try {
+    const response = await fetch('http://localhost:3000/api/twitch/getTwitchUserId', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        twitchName: twitchName,
+        appAccessToken: appAccessToken,
+        clientId: CLIENT_ID,
+      }),
+    });
+  
+    if (!response.ok) {
+      throw new Error(`Failed to get UserId: ${response.statusText}`);
+    }
+  
+    const responseData = await response.json();
+
+    const userId = responseData["userId"]
+    console.log('User ID:', userId);
+
+    return userId;
+
+  } catch (error) {
+    console.error('Failed to get Twitch UserId:', error);
+    throw new Error('Failed to fetch Twitch UserId:');
+  }
+}
 
 function  eventSubRequestOnline(userId: string): string {
 /*
