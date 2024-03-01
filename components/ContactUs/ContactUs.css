@@ -1,0 +1,28 @@
+.contactForm {
+
+
+    height: 800px;
+    width: 600px;
+
+}
+
+.header {
+    font-size: 48px;
+    font-family: 'Roboto';
+}
+
+.fontText {
+    font-family: 'Roboto';
+    font-size: 22px;
+    line-height: 36px;
+}
+
+.inputGen {
+    width: 150%;
+    height: 300px;
+
+}
+
+.request {
+    background: #0284C7;
+}
