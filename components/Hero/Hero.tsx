@@ -2,55 +2,26 @@
 import Button from "../shared/Button";
 import Reveal from "../shared/Reveal";
 import Socials from "../shared/Socials";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="flex flex-col pb-4 pt-20 px-10 lg:px-20 xl:px-72 gap-10 md:flex-row items-center">
-      <div className="py-4 w-full md:w-1/2">
-        <Reveal delay={0}>
-          <p className="text-center md:text-left">
-            Welcome To The Net VR, Home Of The
-          </p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <div className="py-2">
-            <h1 className="uppercase text-6xl font-bold text-center md:text-left lg:text-7xl">
-              Future of
-            </h1>
-            <h1 className="uppercase text-6xl font-bold text-center md:text-left lg:text-7xl">
-              Live Stream
-            </h1>
-          </div>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <p className="py-6">
-            The Net VR challenges the impersonal nature of streaming by allowing
-            viewers to interact in a 3D space. We deepen the streaming
-            experience by fostering personal connections amongst viewers and
-            providing a new and exciting potential for revenue to streamers.
-          </p>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <div className="flex items-center gap-8 flex-col md:flex-row">
-            <Button
-              text="Get In Touch"
-              link="https://www.thenetvr.com/#contact"
-            />
-            <Socials />
-          </div>
-        </Reveal>
+      <div className={"bg-[#1E293B] pt-4 pb-8"}>
+        <div className={"mt-28"}>
+          <div className={"ml-[500px]"}>
+          <h1 className={"text-4xl"}>Experience Vr Without A Headset</h1>
+            <div className={"ml-4"}>
+            <p className={"ml-24 text-lg"}>The Net VR is reinventing Virtual Reality </p>
+            <p className={"ml-36 text-lg"}>In the wake of <span className={"text-[#0284C7]"}>MetaVerse </span> </p>
+            </div>
+        </div>
+          <button
+              className={"flex border-1 border-[#0284C7] bg-[#0284C7] ml-[700px] mt-4 w-36 h-8 text-white rounded-2xl items-center justify-between"}>
+            <div className={"ml-4 text-sm whitespace-nowrap"}>Sign Up Now</div>
+            <Image className={"mr-3 bg-black rounded-lg"} src={"/images/blackArrowImage.png"} width={15} height={15}
+                   alt={"arrowImage"}/>
+          </button>
+        </div>
       </div>
-
-      <div className="md:w-1/2 flex md:justify-end justify-center w-full">
-        <Reveal delay={0} right={true}>
-          <img
-            className="rounded"
-            src="../../screenshots/screenshot-hero-2.jpg"
-            alt="test"
-            width={450}
-          />
-        </Reveal>
-      </div>
-    </div>
   );
 }
