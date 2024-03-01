@@ -1,22 +1,13 @@
 import { NextResponse } from "next/server";
-import type { NextApiRequest, NextApiResponse } from 'next';
-import authHandler from "../getAppAccessTokenAuth/route";
 
-// curl -X GET 'https://api.twitch.tv/helix/users?id=141981764' \
-// -H 'Authorization: Bearer cfabdegwdoklmawdzdo98xt2fo512y' \
-// -H 'Client-Id: uo6dggojyb8d6soh92zknwmi5ej1q2'
-
-const CLIENT_ID = process.env.TWITCH_CLIENT_ID || '';
-const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET || '';
-
-
-export default async function userIdHandler(appAccessToken: string) {
+export async function POST(req:any) {
   try {
-    const response = await fetch('https://api.twitch.tv/helix/users', {
+    const {loginName, appAccessToken, clientId} = await req.json();
+    const response = await fetch(`https://api.twitch.tv/helix/users?login=${loginName}`, {
       method: 'GET',
       headers: {
-        'Authorization': 'Bear ' + appAccessToken,
-        'Client-Id': CLIENT_ID,
+        'Authorization': 'Bearer ' + appAccessToken,
+        'Client-Id': clientId,
       },
     });
 
@@ -25,14 +16,20 @@ export default async function userIdHandler(appAccessToken: string) {
     }
 
     const responseData = await response.json();
+    console.log(responseData);
 
-    const userId = responseData["data"][0]["id"];
+    const userList = responseData["data"];
 
-    return userId;
+    let userId = "invalid";
+
+    if (userList.length > 0) {
+        userId = userList[0]['id'];
+    }
+
+    return NextResponse.json({"userId": userId});
 
   } catch (error) {
-
     console.error(error);
-    //res.status(500).json({ message: 'Failed to obtain Twitch app access token' });
+    return NextResponse.json({ error: error });
   }
 }

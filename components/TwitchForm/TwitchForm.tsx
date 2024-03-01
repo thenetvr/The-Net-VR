@@ -4,12 +4,11 @@ import React, { useReducer, useState } from "react";
 // INPUT NEXUI DOCS = https://nextui.org/docs/components/input
 import { Input } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
-import Socials from "../shared/Socials";
 import Reveal from "../shared/Reveal";
 import Button from "../shared/Button";
 import isValidEmail from "@/utils/utils";
 
-export default function ContactUs() {
+export default function TwitchSignUp() {
   const [errorMessage, setErrorMessage] = useState("");
   const [state, dispatch] = useReducer(
     // @ts-ignore
@@ -20,33 +19,45 @@ export default function ContactUs() {
     {
       first: "",
       last: "",
-      twitchId: "",
+      email: "",
+      twitchName: "",
     }
   );
 
   const handleFormSubmit = async (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const { first, last, twitchId } = state;
+    const { first, last, email, twitchName } = state;
     setErrorMessage("");
 
     // error handling
-    if (!first || !last || !twitchId) {
+    if (!first || !last || !email || !twitchName) {
       setErrorMessage("Please Make A Valid Entry For All Fields");
       return;
     }
-
+    setErrorMessage("Processing your request...");
     try {
       const res = await fetch(`/api/twitch/webpageSignUpFormHandler`, {
         method: "POST",
         body: JSON.stringify({
           first,
           last,
-          twitchId,
+          email,
+          twitchName,
         }),
       });
-      const result = await res.json();
-      console.log(result);
-      setErrorMessage("Success! Your Twitch Channel has been linked.");
+      const response = await res.json();
+      const result = response["formResponse"];
+      const twitchUserId = result["twitchUserId"];
+
+      if (result['twitchUserId'] === "invalid"){
+        setErrorMessage(`Invalid Twitch Name: No user associated with the name "${twitchName}"`);
+      } else if (result['status'] === 409) {
+        setErrorMessage("Looks like this Twitch name has already been registered with us.");
+      } else if (result["status"] === 400) {
+        setErrorMessage("Something went wrong saving your data.");
+      } else {
+        setErrorMessage("Success! Your Twitch Channel has been linked.");
+      }
     } catch (e) {
       console.log(e);
       setErrorMessage("Something Went Wrong. Please Try Again Later.");
@@ -76,7 +87,7 @@ export default function ContactUs() {
           </div>
         </Reveal>
       </div>
-      <form className="w-full flex flex-wrap md:w-2/3">
+      <form className="w-full flex flex-wrap md:w-1/2">
         <div className="p-4 md:w-1/2 w-full">
           <Reveal delay={0}>
             <Input
@@ -105,18 +116,31 @@ export default function ContactUs() {
             />
           </Reveal>
         </div>
-        
-        <div className="p-4 w-full">
+        <div className="p-4 md:w-1/2 w-full">
+          <Reveal delay={0.4}>
+            <Input
+              size="lg"
+              isRequired
+              variant="underlined"
+              type="email"
+              label="Email"
+              placeholder="Enter Your Email"
+              value={state.email}
+              onChange={(e) => dispatch({ email: e.target.value })}
+            />
+          </Reveal>
+        </div>
+        <div className="p-4 md:w-1/2 w-full">
           <Reveal delay={0.8}>
-            <Textarea
+            <Input
+              size="lg"
               key="underlined"
               isRequired
               variant="underlined"
-              label="Twitch ID"
-              placeholder="Enter your Twitch ID"
-              value={state.twitchId}
-              onChange={(e) => dispatch({ twitchId: e.target.value })}
-              size="lg"
+              label="Twitch Name"
+              placeholder="Enter your Twitch Name"
+              value={state.twitchName}
+              onChange={(e) => dispatch({ twitchName: e.target.value })}
             />
           </Reveal>
         </div>
